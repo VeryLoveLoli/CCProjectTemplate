@@ -1,0 +1,29 @@
+{
+  "name": "Prompt",
+  "version": "0.0.2",
+  "summary": "swift Prompt",
+  "description": "swift Prompt",
+  "homepage": "https://github.com/VeryLoveLoli/Prompt",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CCHSora": "chuancan@icloud.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "5.0",
+  "source": {
+    "git": "https://github.com/VeryLoveLoli/Prompt.git",
+    "tag": "0.0.2"
+  },
+  "source_files": [
+    "Source",
+    "Source/*.swift"
+  ],
+  "exclude_files": "Source/Exclude",
+  "frameworks": "Foundation",
+  "requires_arc": true
+}

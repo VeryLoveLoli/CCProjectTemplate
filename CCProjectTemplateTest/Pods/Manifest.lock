@@ -1,0 +1,68 @@
+PODS:
+  - DragLoad (0.0.2)
+  - JSONValue (0.0.8)
+  - Network (0.0.2)
+  - Prompt (0.0.2)
+  - TEA (0.0.1)
+  - XMLValue (0.0.9):
+    - JSONValue (= 0.0.8)
+
+DEPENDENCIES:
+  - DragLoad (from `https://github.com/VeryLoveLoli/DragLoad.git`, tag `0.0.2`)
+  - JSONValue (from `https://github.com/VeryLoveLoli/JSONValue.git`, tag `0.0.8`)
+  - Network (from `https://github.com/VeryLoveLoli/Network.git`, tag `0.0.2`)
+  - Prompt (from `https://github.com/VeryLoveLoli/Prompt.git`, tag `0.0.2`)
+  - TEA (from `https://github.com/VeryLoveLoli/TEA.git`, tag `0.0.1`)
+  - XMLValue (from `https://github.com/VeryLoveLoli/XMLValue.git`, tag `0.0.9`)
+
+EXTERNAL SOURCES:
+  DragLoad:
+    :git: https://github.com/VeryLoveLoli/DragLoad.git
+    :tag: 0.0.2
+  JSONValue:
+    :git: https://github.com/VeryLoveLoli/JSONValue.git
+    :tag: 0.0.8
+  Network:
+    :git: https://github.com/VeryLoveLoli/Network.git
+    :tag: 0.0.2
+  Prompt:
+    :git: https://github.com/VeryLoveLoli/Prompt.git
+    :tag: 0.0.2
+  TEA:
+    :git: https://github.com/VeryLoveLoli/TEA.git
+    :tag: 0.0.1
+  XMLValue:
+    :git: https://github.com/VeryLoveLoli/XMLValue.git
+    :tag: 0.0.9
+
+CHECKOUT OPTIONS:
+  DragLoad:
+    :git: https://github.com/VeryLoveLoli/DragLoad.git
+    :tag: 0.0.2
+  JSONValue:
+    :git: https://github.com/VeryLoveLoli/JSONValue.git
+    :tag: 0.0.8
+  Network:
+    :git: https://github.com/VeryLoveLoli/Network.git
+    :tag: 0.0.2
+  Prompt:
+    :git: https://github.com/VeryLoveLoli/Prompt.git
+    :tag: 0.0.2
+  TEA:
+    :git: https://github.com/VeryLoveLoli/TEA.git
+    :tag: 0.0.1
+  XMLValue:
+    :git: https://github.com/VeryLoveLoli/XMLValue.git
+    :tag: 0.0.9
+
+SPEC CHECKSUMS:
+  DragLoad: ef35bad9a1c509dd8fd950eea6dc6ef647122601
+  JSONValue: 064a997f7c0c2fbd0e75de0e609c6094407be02b
+  Network: 9d80d47096d53f68209c5cd34c03fcdcddd795d8
+  Prompt: 9ab51898d4ca9e1e156f08eda582fb09616b05d9
+  TEA: ec0c8cd28f9354cad770d7683179974f69ca55ff
+  XMLValue: 0413bff7f9a2e624e3458f5bcab5fdf9bd6d2be1
+
+PODFILE CHECKSUM: ba8543f8fa47d8ec8a0eb3981d142a8eb0d61e90
+
+COCOAPODS: 1.6.1

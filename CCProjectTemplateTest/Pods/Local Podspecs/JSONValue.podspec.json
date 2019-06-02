@@ -1,0 +1,29 @@
+{
+  "name": "JSONValue",
+  "version": "0.0.8",
+  "summary": "swift JSON",
+  "description": "swift JSON Value",
+  "homepage": "https://github.com/VeryLoveLoli/JSONValue",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CCHSora": "chuancan@icloud.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "5.0",
+  "source": {
+    "git": "https://github.com/VeryLoveLoli/JSONValue.git",
+    "tag": "0.0.8"
+  },
+  "source_files": [
+    "Source",
+    "Source/*.swift"
+  ],
+  "exclude_files": "Source/Exclude",
+  "frameworks": "Foundation",
+  "requires_arc": true
+}

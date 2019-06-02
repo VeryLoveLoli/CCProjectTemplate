@@ -1,0 +1,38 @@
+{
+  "name": "XMLValue",
+  "version": "0.0.9",
+  "summary": "swift XML",
+  "description": "swift XML Value",
+  "homepage": "https://github.com/VeryLoveLoli/XMLValue",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "VeryLoveLoli": "chuancan@icloud.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "5.0",
+  "source": {
+    "git": "https://github.com/VeryLoveLoli/XMLValue.git",
+    "tag": "0.0.9"
+  },
+  "source_files": [
+    "Source",
+    "Source/*.swift"
+  ],
+  "exclude_files": "Source/Exclude",
+  "frameworks": "Foundation",
+  "libraries": "xml2.2",
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${SDK_DIR}/usr/include/libxml2"
+  },
+  "dependencies": {
+    "JSONValue": [
+      "0.0.8"
+    ]
+  }
+}

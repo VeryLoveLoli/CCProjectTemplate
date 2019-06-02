@@ -1,0 +1,6 @@
+framework module Prompt {
+  umbrella header "Prompt-umbrella.h"
+
+  export *
+  module * { export * }
+}
