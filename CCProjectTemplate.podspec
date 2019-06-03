@@ -107,7 +107,12 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # 获取资源需要 通过 Bundle.init(path: Bundle.main.bundlePath + "/Frameworks/CCProjectTemplate.framework") 过于麻烦 而且storyboard无法使用图片
+  
+  # 获取资源需要 通过 Bundle.init(path: Bundle.main.bundlePath + "/Frameworks/CCProjectTemplate.framework") 
+  # xcassets/xib/storyboard 都需要
+  # 所以CCProjectTemplate项目中使用的资源在Pod引入后均无法使用
+  # 将资源拷贝到新的工程后，xcassets可以使用，但storyboard使用还是出错（UIViewController无法转换成CCViewController，估计xib也一样）
+  # 这个模版还是直接 git clone 下来，引用到项目。。。
   s.resources = "Resources/*.{xcassets,xib,storyboard}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
