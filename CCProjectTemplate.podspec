@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CCProjectTemplate"
-  s.version      = "master"
+  s.version      = "1.0-master"
   s.summary      = "iOS Swift CC Project Template"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                      iOS Swift CC Project Template
+                      iOS Swift CC Project Template.
                    DESC
 
   s.homepage     = "https://github.com/VeryLoveLoli/CCProjectTemplate"
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Source", "Source/*/*.swift"
+  s.source_files  = "Source", "Source/**/*.swift"
   s.exclude_files = "Source/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -134,11 +134,11 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "JSONValue", "master"
-  s.dependency 'XMLValue', "master"  
-  s.dependency "TEA", "master"
-  s.dependency "Network", "master"
-  s.dependency "DragLoad", "master"
-  s.dependency "Prompt", "master"
+  s.dependency "JSONValue", "1.0-master"
+  s.dependency 'XMLValue', "1.0-master"  
+  s.dependency "TEA", "1.0-master"
+  s.dependency "Network", "1.0-master"
+  s.dependency "DragLoad", "1.0-master"
+  s.dependency "Prompt", "1.0-master"
 
 end
