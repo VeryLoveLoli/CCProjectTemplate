@@ -1,6 +1,0 @@
-framework module DragLoad {
-  umbrella header "DragLoad-umbrella.h"
-
-  export *
-  module * { export * }
-}

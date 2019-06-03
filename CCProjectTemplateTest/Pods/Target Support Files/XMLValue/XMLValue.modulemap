@@ -1,6 +1,0 @@
-framework module XMLValue {
-  umbrella header "XMLValue-umbrella.h"
-
-  export *
-  module * { export * }
-}

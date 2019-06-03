@@ -1,6 +1,0 @@
-framework module TEA {
-  umbrella header "TEA-umbrella.h"
-
-  export *
-  module * { export * }
-}

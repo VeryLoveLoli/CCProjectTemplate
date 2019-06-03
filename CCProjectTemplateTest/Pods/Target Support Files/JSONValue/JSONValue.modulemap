@@ -1,6 +1,0 @@
-framework module JSONValue {
-  umbrella header "JSONValue-umbrella.h"
-
-  export *
-  module * { export * }
-}
