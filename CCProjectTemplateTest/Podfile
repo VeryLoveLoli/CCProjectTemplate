@@ -1,3 +1,4 @@
+source 'https://github.com/VeryLoveLoli/CocoaPodsSource.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
@@ -5,11 +6,11 @@ use_frameworks!
 
 target 'CCProjectTemplateTest' do
 
-    pod 'JSONValue', git: 'https://github.com/VeryLoveLoli/JSONValue.git', tag: '0.0.8'
-    pod 'XMLValue', git: 'https://github.com/VeryLoveLoli/XMLValue.git', tag: '0.0.9'
-    pod 'TEA', git: 'https://github.com/VeryLoveLoli/TEA.git', tag: '0.0.1'
-    pod 'Network', git: 'https://github.com/VeryLoveLoli/Network.git', tag: '0.0.2'
-    pod 'DragLoad', git: 'https://github.com/VeryLoveLoli/DragLoad.git', tag: '0.0.2'
-    pod 'Prompt', git: 'https://github.com/VeryLoveLoli/Prompt.git', tag: '0.0.2'
+    pod 'JSONValue',    '1.0-master'
+    pod 'XMLValue',     '1.0-master'
+    pod 'TEA',          '1.0-master'
+    pod 'Network',      '1.0-master'
+    pod 'DragLoad',     '1.0-master'
+    pod 'Prompt',       '1.0-master'
 end
 

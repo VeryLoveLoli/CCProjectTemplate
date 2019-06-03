@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D065639C109B20B22895315 /* Pods_CCProjectTemplateTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF8DF00478E8FEEC931320 /* Pods_CCProjectTemplateTest.framework */; };
+		5E3FEBF522A5741F0034EF54 /* CCTabBarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */; };
+		5E3FEBF722A575F50034EF54 /* CCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */; };
+		5E3FEBF922A576050034EF54 /* CCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF822A576050034EF54 /* CCTableView.swift */; };
 		5E9F031422A4125F00E23597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F031322A4125F00E23597 /* AppDelegate.swift */; };
 		5E9F031622A4125F00E23597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F031522A4125F00E23597 /* ViewController.swift */; };
 		5E9F031922A4125F00E23597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9F031722A4125F00E23597 /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		2DFF8DF00478E8FEEC931320 /* Pods_CCProjectTemplateTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCProjectTemplateTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D88E792085115C72F2695A /* Pods-CCProjectTemplateTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCProjectTemplateTest.release.xcconfig"; path = "Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest.release.xcconfig"; sourceTree = "<group>"; };
+		5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionViewController.swift; sourceTree = "<group>"; };
+		5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCCollectionView.swift; sourceTree = "<group>"; };
+		5E3FEBF822A576050034EF54 /* CCTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTableView.swift; sourceTree = "<group>"; };
 		5E9F031022A4125F00E23597 /* CCProjectTemplateTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCProjectTemplateTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9F031322A4125F00E23597 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E9F031522A4125F00E23597 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +226,9 @@
 				5E9F039F22A421B700E23597 /* CCCollectionViewController.swift */,
 				5E9F03A022A421B700E23597 /* CCCollectionViewHeaderFooterView.swift */,
 				5E9F03A122A421B700E23597 /* CCImagePickerControllerDelegate.swift */,
+				5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */,
+				5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */,
+				5E3FEBF822A576050034EF54 /* CCTableView.swift */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -314,26 +323,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DragLoad/DragLoad.framework",
-				"${BUILT_PRODUCTS_DIR}/JSONValue/JSONValue.framework",
-				"${BUILT_PRODUCTS_DIR}/Network/Network.framework",
-				"${BUILT_PRODUCTS_DIR}/Prompt/Prompt.framework",
-				"${BUILT_PRODUCTS_DIR}/TEA/TEA.framework",
-				"${BUILT_PRODUCTS_DIR}/XMLValue/XMLValue.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DragLoad.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONValue.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Network.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prompt.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TEA.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLValue.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,6 +367,7 @@
 				5E9F03C522A421B700E23597 /* CCCollectionViewHeaderFooterView.swift in Sources */,
 				5E9F03A922A421B700E23597 /* UIView.swift in Sources */,
 				5E9F031622A4125F00E23597 /* ViewController.swift in Sources */,
+				5E3FEBF522A5741F0034EF54 /* CCTabBarCollectionViewController.swift in Sources */,
 				5E9F03B422A421B700E23597 /* CCCollectionViewWaterfallsFlowLayout.swift in Sources */,
 				5E9F03C022A421B700E23597 /* CCTableViewController.swift in Sources */,
 				5E9F03A822A421B700E23597 /* Date.swift in Sources */,
@@ -389,6 +384,7 @@
 				5E9F03AB22A421B700E23597 /* Array.swift in Sources */,
 				5E9F03C222A421B700E23597 /* CCTabBarController.swift in Sources */,
 				5E9F03BB22A421B700E23597 /* CCPlayerViewController.swift in Sources */,
+				5E3FEBF722A575F50034EF54 /* CCCollectionView.swift in Sources */,
 				5E9F03B222A421B700E23597 /* CCTableViewCell.swift in Sources */,
 				5E9F03AC22A421B700E23597 /* NSObjectProtocol.swift in Sources */,
 				5E9F031422A4125F00E23597 /* AppDelegate.swift in Sources */,
@@ -396,6 +392,7 @@
 				5E9F03AE22A421B700E23597 /* Timer.swift in Sources */,
 				5E9F03C122A421B700E23597 /* CCPlayerViewProtocol.swift in Sources */,
 				5E9F03B922A421B700E23597 /* CCViewController.swift in Sources */,
+				5E3FEBF922A576050034EF54 /* CCTableView.swift in Sources */,
 				5E9F03B822A421B700E23597 /* CCAlertViewController.swift in Sources */,
 				5E9F03AF22A421B700E23597 /* Int.swift in Sources */,
 				5E9F03B122A421B700E23597 /* CCPlayerLayerView.swift in Sources */,
