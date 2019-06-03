@@ -107,7 +107,8 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "Resources/*.{xcassets,xib,storyboard}"
+  # 获取资源需要 通过 Bundle.init(path: Bundle.main.bundlePath + "/Frameworks/CCProjectTemplate.framework") 过于麻烦 而且storyboard无法使用图片
+  # s.resources = "Resources/*.{xcassets,xib,storyboard}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
