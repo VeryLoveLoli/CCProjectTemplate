@@ -13,6 +13,15 @@
 		2E84727C22A65068005881F5 /* CCTabBarCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E84727822A65067005881F5 /* CCTabBarCollectionView.xib */; };
 		2E84727D22A65068005881F5 /* CCView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E84727922A65068005881F5 /* CCView.xib */; };
 		3D065639C109B20B22895315 /* Pods_CCProjectTemplateTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF8DF00478E8FEEC931320 /* Pods_CCProjectTemplateTest.framework */; };
+		5E0A67D922A6B901000EC53D /* CCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67D822A6B901000EC53D /* CCView.swift */; };
+		5E0A67DB22A6B931000EC53D /* CCTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67DA22A6B931000EC53D /* CCTabBarCollectionViewCell.swift */; };
+		5E0A67DD22A6B94E000EC53D /* CCTabBarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67DC22A6B94E000EC53D /* CCTabBarCollectionView.swift */; };
+		5E0A67DF22A6BA4B000EC53D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67DE22A6BA4B000EC53D /* String.swift */; };
+		5E0A67E122A6BAE4000EC53D /* CCXIBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67E022A6BAE4000EC53D /* CCXIBProtocol.swift */; };
+		5E0A67E322A6BB54000EC53D /* CCBannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67E222A6BB54000EC53D /* CCBannerCollectionView.swift */; };
+		5E0A67E522A6BBB6000EC53D /* CCBannerCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A67E422A6BBB6000EC53D /* CCBannerCollectionView.xib */; };
+		5E0A67E722A6BC07000EC53D /* CCBannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A67E622A6BC07000EC53D /* CCBannerCollectionViewCell.xib */; };
+		5E0A67E922A6BC26000EC53D /* CCBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67E822A6BC26000EC53D /* CCBannerCollectionViewCell.swift */; };
 		5E3FEBF522A5741F0034EF54 /* CCTabBarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */; };
 		5E3FEBF722A575F50034EF54 /* CCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */; };
 		5E3FEBF922A576050034EF54 /* CCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF822A576050034EF54 /* CCTableView.swift */; };
@@ -68,6 +77,15 @@
 		2E84727822A65067005881F5 /* CCTabBarCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCTabBarCollectionView.xib; sourceTree = "<group>"; };
 		2E84727922A65068005881F5 /* CCView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCView.xib; sourceTree = "<group>"; };
 		31D88E792085115C72F2695A /* Pods-CCProjectTemplateTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCProjectTemplateTest.release.xcconfig"; path = "Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest.release.xcconfig"; sourceTree = "<group>"; };
+		5E0A67D822A6B901000EC53D /* CCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCView.swift; sourceTree = "<group>"; };
+		5E0A67DA22A6B931000EC53D /* CCTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		5E0A67DC22A6B94E000EC53D /* CCTabBarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionView.swift; sourceTree = "<group>"; };
+		5E0A67DE22A6BA4B000EC53D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5E0A67E022A6BAE4000EC53D /* CCXIBProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCXIBProtocol.swift; sourceTree = "<group>"; };
+		5E0A67E222A6BB54000EC53D /* CCBannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCBannerCollectionView.swift; sourceTree = "<group>"; };
+		5E0A67E422A6BBB6000EC53D /* CCBannerCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCBannerCollectionView.xib; sourceTree = "<group>"; };
+		5E0A67E622A6BC07000EC53D /* CCBannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCBannerCollectionViewCell.xib; sourceTree = "<group>"; };
+		5E0A67E822A6BC26000EC53D /* CCBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionViewController.swift; sourceTree = "<group>"; };
 		5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCCollectionView.swift; sourceTree = "<group>"; };
 		5E3FEBF822A576050034EF54 /* CCTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTableView.swift; sourceTree = "<group>"; };
@@ -184,6 +202,8 @@
 				2E84727822A65067005881F5 /* CCTabBarCollectionView.xib */,
 				2E3A665122A68DA7003B8256 /* CCTabBarCollectionViewCell.xib */,
 				2E84727722A65067005881F5 /* CCTableView.xib */,
+				5E0A67E422A6BBB6000EC53D /* CCBannerCollectionView.xib */,
+				5E0A67E622A6BC07000EC53D /* CCBannerCollectionViewCell.xib */,
 				5E9F037F22A421B700E23597 /* CC.xcassets */,
 			);
 			name = Resources;
@@ -212,6 +232,7 @@
 				5E9F038822A421B700E23597 /* Timer.swift */,
 				5E9F038922A421B700E23597 /* Int.swift */,
 				5E9F038A22A421B700E23597 /* UIViewController.swift */,
+				5E0A67DE22A6BA4B000EC53D /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -244,6 +265,12 @@
 				5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */,
 				5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */,
 				5E3FEBF822A576050034EF54 /* CCTableView.swift */,
+				5E0A67D822A6B901000EC53D /* CCView.swift */,
+				5E0A67DA22A6B931000EC53D /* CCTabBarCollectionViewCell.swift */,
+				5E0A67DC22A6B94E000EC53D /* CCTabBarCollectionView.swift */,
+				5E0A67E022A6BAE4000EC53D /* CCXIBProtocol.swift */,
+				5E0A67E222A6BB54000EC53D /* CCBannerCollectionView.swift */,
+				5E0A67E822A6BC26000EC53D /* CCBannerCollectionViewCell.swift */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -319,6 +346,7 @@
 			files = (
 				2E84727A22A65068005881F5 /* CCCollectionView.xib in Resources */,
 				5E9F03A722A421B700E23597 /* CC.xcassets in Resources */,
+				5E0A67E722A6BC07000EC53D /* CCBannerCollectionViewCell.xib in Resources */,
 				5E9F03A422A421B700E23597 /* CCTableViewHeaderFooterView.xib in Resources */,
 				5E9F031E22A4126000E23597 /* LaunchScreen.storyboard in Resources */,
 				2E3A665222A68DA8003B8256 /* CCTabBarCollectionViewCell.xib in Resources */,
@@ -330,6 +358,7 @@
 				2E84727C22A65068005881F5 /* CCTabBarCollectionView.xib in Resources */,
 				5E9F03A322A421B700E23597 /* CCCollectionViewHeaderFooterView.xib in Resources */,
 				5E9F03A222A421B700E23597 /* CC.storyboard in Resources */,
+				5E0A67E522A6BBB6000EC53D /* CCBannerCollectionView.xib in Resources */,
 				5E9F031922A4125F00E23597 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,14 +414,18 @@
 			files = (
 				5E9F03BA22A421B700E23597 /* CCTableViewHeaderFooterView.swift in Sources */,
 				5E9F03C522A421B700E23597 /* CCCollectionViewHeaderFooterView.swift in Sources */,
+				5E0A67D922A6B901000EC53D /* CCView.swift in Sources */,
 				5E9F03A922A421B700E23597 /* UIView.swift in Sources */,
+				5E0A67DB22A6B931000EC53D /* CCTabBarCollectionViewCell.swift in Sources */,
 				5E9F031622A4125F00E23597 /* ViewController.swift in Sources */,
+				5E0A67E922A6BC26000EC53D /* CCBannerCollectionViewCell.swift in Sources */,
 				5E3FEBF522A5741F0034EF54 /* CCTabBarCollectionViewController.swift in Sources */,
 				5E9F03B422A421B700E23597 /* CCCollectionViewWaterfallsFlowLayout.swift in Sources */,
 				5E9F03C022A421B700E23597 /* CCTableViewController.swift in Sources */,
 				5E9F03A822A421B700E23597 /* Date.swift in Sources */,
 				5E9F03B022A421B700E23597 /* UIViewController.swift in Sources */,
 				5E9F03C322A421B700E23597 /* CCNavigationController.swift in Sources */,
+				5E0A67E322A6BB54000EC53D /* CCBannerCollectionView.swift in Sources */,
 				5E9F03BC22A421B700E23597 /* CCScriptMessagetHandler.swift in Sources */,
 				5E9F03C622A421B700E23597 /* CCImagePickerControllerDelegate.swift in Sources */,
 				5E9F03B622A421B700E23597 /* CCStoryboardProtocol.swift in Sources */,
@@ -402,6 +435,8 @@
 				5E9F03BF22A421B700E23597 /* CCWebViewController.swift in Sources */,
 				5E9F03B522A421B700E23597 /* CCWebJSViewController.swift in Sources */,
 				5E9F03AB22A421B700E23597 /* Array.swift in Sources */,
+				5E0A67DD22A6B94E000EC53D /* CCTabBarCollectionView.swift in Sources */,
+				5E0A67DF22A6BA4B000EC53D /* String.swift in Sources */,
 				5E9F03C222A421B700E23597 /* CCTabBarController.swift in Sources */,
 				5E9F03BB22A421B700E23597 /* CCPlayerViewController.swift in Sources */,
 				5E3FEBF722A575F50034EF54 /* CCCollectionView.swift in Sources */,
@@ -414,6 +449,7 @@
 				5E9F03B922A421B700E23597 /* CCViewController.swift in Sources */,
 				5E3FEBF922A576050034EF54 /* CCTableView.swift in Sources */,
 				5E9F03B822A421B700E23597 /* CCAlertViewController.swift in Sources */,
+				5E0A67E122A6BAE4000EC53D /* CCXIBProtocol.swift in Sources */,
 				5E9F03AF22A421B700E23597 /* Int.swift in Sources */,
 				5E9F03B122A421B700E23597 /* CCPlayerLayerView.swift in Sources */,
 				5E9F03C422A421B700E23597 /* CCCollectionViewController.swift in Sources */,

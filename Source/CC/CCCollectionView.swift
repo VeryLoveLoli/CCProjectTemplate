@@ -109,8 +109,6 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
             self?.networkLoading()
         }
         
-        collectionView.register(CCCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "Cell")
-        
         if let name = cellNibName {
             
             collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "Cell")
@@ -351,26 +349,5 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
         }
         
         return CGSize.init(width: CGFloat(source[section].footer.width.number.float), height: CGFloat(source[section].footer.height.number.float))
-    }
-}
-
-/**
- CC视图
- */
-open class CCView: UIView, CCXIBProtocol {
-    
-    /**
-     XIB
-     */
-    open class func xib() -> Self {
-        
-        return xib(name: "CCView", index: 0)
-    }
-    
-    /**
-     默认设置
-     */
-    open class func defaultSetting(_ any: Any) {
-        
     }
 }

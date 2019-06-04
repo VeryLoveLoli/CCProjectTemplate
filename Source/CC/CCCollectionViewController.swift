@@ -34,14 +34,54 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
     open var isGroup = false
     /// 是否显示空数据Cell
     open var isShowEmptyCell = false
+    
     /// 修改Cell
-    open var cellNibName: String?
+    open var cellNibName: String? {
+        
+        didSet {
+            
+            if let name = cellNibName {
+                
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "Cell")
+            }
+        }
+    }
+    
     /// 修改空数据Cell
-    open var emptyCellNibName: String? = "CCCollectionViewEmptyCell"
+    open var emptyCellNibName: String? = "CCCollectionViewEmptyCell" {
+        
+        didSet {
+            
+            if let name = emptyCellNibName {
+                
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "EmptyCell")
+            }
+        }
+    }
+    
     /// 设置Header
-    open var headerViewNibName: String? = "CCCollectionViewHeaderFooterView"
+    open var headerViewNibName: String? = "CCCollectionViewHeaderFooterView" {
+        
+        didSet {
+            
+            if let name = headerViewNibName {
+                
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+            }
+        }
+    }
+    
     /// 设置Footer
-    open var footerNibName: String? = "CCCollectionViewHeaderFooterView"
+    open var footerNibName: String? = "CCCollectionViewHeaderFooterView" {
+        
+        didSet {
+            
+            if let name = footerNibName {
+                
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+            }
+        }
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()

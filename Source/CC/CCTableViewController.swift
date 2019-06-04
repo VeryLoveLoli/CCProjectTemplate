@@ -35,14 +35,54 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
     open var isGroup = false
     /// 是否显示空数据Cell
     open var isShowEmptyCell = false
+    
     /// 修改Cell
-    open var cellNibName: String?
+    open var cellNibName: String? {
+        
+        didSet {
+            
+            if let name = cellNibName {
+                
+                tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "Cell")
+            }
+        }
+    }
+    
     /// 修改空数据Cell
-    open var emptyCellNibName: String? = "CCTableViewEmptyCell"
+    open var emptyCellNibName: String? = "CCTableViewEmptyCell" {
+        
+        didSet {
+            
+            if let name = emptyCellNibName {
+                
+                tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "EmptyCell")
+            }
+        }
+    }
+    
     /// 设置Header
-    open var headerViewNibName: String? = "CCTableViewHeaderFooterView"
+    open var headerViewNibName: String? = "CCTableViewHeaderFooterView" {
+        
+        didSet {
+            
+            if let name = headerViewNibName {
+                
+                tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
+            }
+        }
+    }
+    
     /// 设置Footer
-    open var footerNibName: String? = "CCTableViewHeaderFooterView"
+    open var footerNibName: String? = "CCTableViewHeaderFooterView" {
+        
+        didSet {
+            
+            if let name = footerNibName {
+                
+                tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
+            }
+        }
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()

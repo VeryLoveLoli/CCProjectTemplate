@@ -112,8 +112,6 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             self?.networkLoading()
         }
         
-        tableView.register(CCTableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
-        
         if let name = cellNibName {
             
             tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "Cell")
