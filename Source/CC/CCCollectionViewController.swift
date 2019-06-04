@@ -117,9 +117,12 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
                     self.page -= 1
                 }
             }
-            else if self.collectionView.dragDownView?.dragLoadStatus == .loading {
+            else {
                 
-                self.collectionView.endDragDownLoading()
+                if self.collectionView.dragDownView?.dragLoadStatus == .loading {
+                    
+                    self.collectionView.endDragDownLoading()
+                }
                 
                 if bool {
                     

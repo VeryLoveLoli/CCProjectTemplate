@@ -29,7 +29,7 @@ open class CCPlayerViewController: CCViewController, CCPlayerViewProtocol {
     }
     
     /// 播放视图
-    @IBOutlet weak var playerView: CCPlayerView!
+    @IBOutlet open weak var playerView: CCPlayerView!
     
     /// 视频地址
     open var urlString: String?

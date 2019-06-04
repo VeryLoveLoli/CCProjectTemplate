@@ -121,9 +121,12 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
                     self.page -= 1
                 }
             }
-            else if self.tableView.dragDownView?.dragLoadStatus == .loading {
+            else {
                 
-                self.tableView.endDragDownLoading()
+                if self.tableView.dragDownView?.dragLoadStatus == .loading {
+                    
+                    self.tableView.endDragDownLoading()
+                }
                 
                 if bool {
                     
