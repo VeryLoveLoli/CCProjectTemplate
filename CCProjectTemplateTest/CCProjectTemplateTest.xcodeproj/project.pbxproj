@@ -13,6 +13,7 @@
 		2E84727C22A65068005881F5 /* CCTabBarCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E84727822A65067005881F5 /* CCTabBarCollectionView.xib */; };
 		2E84727D22A65068005881F5 /* CCView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E84727922A65068005881F5 /* CCView.xib */; };
 		3D065639C109B20B22895315 /* Pods_CCProjectTemplateTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF8DF00478E8FEEC931320 /* Pods_CCProjectTemplateTest.framework */; };
+		5E039A2D22A7EE440071E68D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039A2C22A7EE440071E68D /* UIImage.swift */; };
 		5E0A67D922A6B901000EC53D /* CCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67D822A6B901000EC53D /* CCView.swift */; };
 		5E0A67DB22A6B931000EC53D /* CCTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67DA22A6B931000EC53D /* CCTabBarCollectionViewCell.swift */; };
 		5E0A67DD22A6B94E000EC53D /* CCTabBarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67DC22A6B94E000EC53D /* CCTabBarCollectionView.swift */; };
@@ -77,6 +78,7 @@
 		2E84727822A65067005881F5 /* CCTabBarCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCTabBarCollectionView.xib; sourceTree = "<group>"; };
 		2E84727922A65068005881F5 /* CCView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCView.xib; sourceTree = "<group>"; };
 		31D88E792085115C72F2695A /* Pods-CCProjectTemplateTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCProjectTemplateTest.release.xcconfig"; path = "Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest.release.xcconfig"; sourceTree = "<group>"; };
+		5E039A2C22A7EE440071E68D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5E0A67D822A6B901000EC53D /* CCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCView.swift; sourceTree = "<group>"; };
 		5E0A67DA22A6B931000EC53D /* CCTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E0A67DC22A6B94E000EC53D /* CCTabBarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				5E9F038922A421B700E23597 /* Int.swift */,
 				5E9F038A22A421B700E23597 /* UIViewController.swift */,
 				5E0A67DE22A6BA4B000EC53D /* String.swift */,
+				5E039A2C22A7EE440071E68D /* UIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E9F03BA22A421B700E23597 /* CCTableViewHeaderFooterView.swift in Sources */,
+				5E039A2D22A7EE440071E68D /* UIImage.swift in Sources */,
 				5E9F03C522A421B700E23597 /* CCCollectionViewHeaderFooterView.swift in Sources */,
 				5E0A67D922A6B901000EC53D /* CCView.swift in Sources */,
 				5E9F03A922A421B700E23597 /* UIView.swift in Sources */,
