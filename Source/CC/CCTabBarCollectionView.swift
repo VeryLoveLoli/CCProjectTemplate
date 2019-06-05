@@ -70,6 +70,18 @@ open class CCTabBarCollectionView: CCCollectionView {
      */
     open override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        if let flow = collectionViewLayout as? UICollectionViewFlowLayout {
+            
+            if flow.scrollDirection == .vertical {
+                
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(Int(collectionView.frame.height/visibleTabBarNumber)))
+            }
+            else {
+                
+                return CGSize.init(width: CGFloat(Int(collectionView.frame.width/visibleTabBarNumber)), height: collectionView.frame.height)
+            }
+        }
+        
         return CGSize.init(width: CGFloat(Int(collectionView.frame.width/visibleTabBarNumber)), height: collectionView.frame.height)
     }
     
@@ -101,37 +113,80 @@ open class CCTabBarCollectionView: CCCollectionView {
         
         collectionView.reloadData()
         
-        let cellSize = CGSize.init(width: CGFloat(Int(collectionView.frame.width/visibleTabBarNumber)), height: collectionView.frame.height)
+        let cellSize = collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath.init(row: index, section: 0))
         
-        if index == 0 {
+        var isVerticalScroll = false
+        
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             
-            collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+            isVerticalScroll = flow.scrollDirection == .vertical
         }
-        else if index == source.array.count - 1 {
+        
+        if isVerticalScroll {
             
-            collectionView.setContentOffset(CGPoint.init(x: collectionView.contentSize.width - collectionView.frame.width, y: 0), animated: true)
+            if index == 0 {
+                
+                collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+            }
+            else if index == source.array.count - 1 {
+                
+                collectionView.setContentOffset(CGPoint.init(x: 0, y: collectionView.contentSize.height - collectionView.frame.height), animated: true)
+            }
+            else {
+                
+                var py = Int((CGFloat(index+1+1)-visibleTabBarNumber)*cellSize.height)
+                
+                if py < 0 {
+                    
+                    py = 0
+                }
+                else if CGFloat(py) + CGFloat(index+1) * cellSize.width >= collectionView.contentSize.height {
+                    
+                    py = Int(collectionView.contentSize.height - collectionView.frame.height)
+                }
+                
+                collectionView.setContentOffset(CGPoint.init(x: 0, y: py), animated: true)
+            }
+            
+            let imageSize = sliderSize ?? CGSize.init(width: 3, height: cellSize.height)
+            
+            UIView.animate(withDuration: sliderAnimateTime) {
+                
+                self.sliderImageView.frame = CGRect.init(origin: CGPoint.init(x: cellSize.width - imageSize.width, y: cellSize.height*CGFloat(self.index) + (cellSize.height - imageSize.height)/2), size: imageSize)
+            }
         }
         else {
             
-            var px = Int((CGFloat(index+1+1)-visibleTabBarNumber)*cellSize.width)
-            
-            if px < 0 {
+            if index == 0 {
                 
-                px = 0
+                collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
             }
-            else if CGFloat(px) + CGFloat(index+1) * cellSize.width >= collectionView.contentSize.width {
+            else if index == source.array.count - 1 {
                 
-                px = Int(collectionView.contentSize.width - collectionView.frame.width)
+                collectionView.setContentOffset(CGPoint.init(x: collectionView.contentSize.width - collectionView.frame.width, y: 0), animated: true)
+            }
+            else {
+                
+                var px = Int((CGFloat(index+1+1)-visibleTabBarNumber)*cellSize.width)
+                
+                if px < 0 {
+                    
+                    px = 0
+                }
+                else if CGFloat(px) + CGFloat(index+1) * cellSize.width >= collectionView.contentSize.width {
+                    
+                    px = Int(collectionView.contentSize.width - collectionView.frame.width)
+                }
+                
+                collectionView.setContentOffset(CGPoint.init(x: px, y: 0), animated: true)
             }
             
-            collectionView.setContentOffset(CGPoint.init(x: px, y: 0), animated: true)
-        }
-        
-        let imageSize = sliderSize ?? CGSize.init(width: 0.8*cellSize.width, height: 3)
-        
-        UIView.animate(withDuration: sliderAnimateTime) {
+            let imageSize = sliderSize ?? CGSize.init(width: 0.8*cellSize.width, height: 3)
             
-            self.sliderImageView.frame = CGRect.init(origin: CGPoint.init(x: cellSize.width*CGFloat(self.index) + (cellSize.width - imageSize.width)/2, y: cellSize.height - imageSize.height), size: imageSize)
+            UIView.animate(withDuration: sliderAnimateTime) {
+                
+                self.sliderImageView.frame = CGRect.init(origin: CGPoint.init(x: cellSize.width*CGFloat(self.index) + (cellSize.width - imageSize.width)/2, y: cellSize.height - imageSize.height), size: imageSize)
+            }
         }
     }
 }

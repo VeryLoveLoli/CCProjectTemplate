@@ -97,6 +97,11 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            
+            collectionView.isVerticalScroll = flow.scrollDirection == .vertical
+        }
+        
         collectionView.dragUpLoading = {[weak self] in
             
             self?.page += 1
