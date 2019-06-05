@@ -36,15 +36,23 @@ open class CCBannerCollectionView: CCCollectionView {
         
         didSet {
             
-            if oldValue != index {
-                
-                update()
-            }
+            update()
+        }
+    }
+    
+    /// 列表
+    open var list: [JSONValue] = [] {
+        
+        didSet {
+            
+            update()
         }
     }
     
     open override func awakeFromNib() {
         super.awakeFromNib()
+        
+        source = Array.init(repeating: JSONValue(), count: 5).json
         
         Timer.timeInterval(timeInterval) { [weak self] (timer) in
             
@@ -56,6 +64,24 @@ open class CCBannerCollectionView: CCCollectionView {
             }
             else {
                 
+                if let number = self?.source.array.count, let v = self?.collectionView {
+                    
+                    var isVerticalScroll = false
+                    
+                    if let flow = v.collectionViewLayout as? UICollectionViewFlowLayout {
+                        
+                        isVerticalScroll = flow.scrollDirection == .vertical
+                    }
+                    
+                    if isVerticalScroll {
+                        
+                        v.setContentOffset(CGPoint.init(x: 0, y: CGFloat(number/2 + number%2)*v.frame.height), animated: true)
+                    }
+                    else {
+                        
+                        v.setContentOffset(CGPoint.init(x: CGFloat(number/2 + number%2)*v.frame.width, y: 0), animated: true)
+                    }
+                }
             }
         }
     }
@@ -83,8 +109,7 @@ open class CCBannerCollectionView: CCCollectionView {
      */
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        index = Int(scrollView.contentOffset.x/scrollView.frame.size.width) - 1
-        
+        updateIndex()
     }
     
     /**
@@ -92,7 +117,7 @@ open class CCBannerCollectionView: CCCollectionView {
      */
     open func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         
-        index = Int(scrollView.contentOffset.x/scrollView.frame.size.width) - 1
+        updateIndex()
     }
     
     // MARK: - Event
@@ -102,6 +127,89 @@ open class CCBannerCollectionView: CCCollectionView {
      */
     open func update() {
         
+        let midIndex = CGFloat(source.array.count/2 + source.array.count%2) - 1
+
+        if list.count > 0 {
+            
+            let start_index = index - Int(midIndex) + list.count
+            
+            for i in 0..<source.array.count {
+                
+                source[i] = list[(start_index+i)%list.count]
+            }
+        }
         
+        var isVerticalScroll = false
+        
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            
+            isVerticalScroll = flow.scrollDirection == .vertical
+        }
+        
+        if isVerticalScroll {
+            
+            if collectionView.contentSize.height < CGFloat(list.count)*collectionView.frame.size.height {
+                
+                collectionView.contentSize.height = CGFloat(list.count)*collectionView.frame.size.height
+            }
+            
+            collectionView.contentOffset = CGPoint.init(x: 0, y: midIndex*collectionView.frame.size.height)
+        }
+        else {
+            
+            if collectionView.contentSize.width < CGFloat(list.count)*collectionView.frame.size.width {
+                
+                collectionView.contentSize.width = CGFloat(list.count)*collectionView.frame.size.width
+            }
+            
+            collectionView.contentOffset = CGPoint.init(x: midIndex*collectionView.frame.size.width, y: 0)
+        }
+        
+        pageControl?.numberOfPages = list.count
+        pageControl?.currentPage = index
+        collectionView.reloadData()
+    }
+    
+    /**
+     更新索引
+     */
+    open func updateIndex() {
+        
+        let midIndex = source.array.count/2 + source.array.count%2 - 1
+        var offsetIndex = 0
+        
+        var isVerticalScroll = false
+        
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            
+            isVerticalScroll = flow.scrollDirection == .vertical
+        }
+        
+        if isVerticalScroll {
+            
+            offsetIndex = Int(collectionView.contentOffset.y/collectionView.frame.size.height)
+        }
+        else {
+            
+            offsetIndex = Int(collectionView.contentOffset.x/collectionView.frame.size.width)
+        }
+        
+        offsetIndex -= midIndex
+        
+        var newIndex = 0
+        
+        if list.count > 0 {
+            
+            newIndex = index + offsetIndex
+            
+            while newIndex < 0 {
+                
+                newIndex += list.count
+            }
+            
+            newIndex = newIndex%list.count
+        }
+        
+        index = newIndex
     }
 }
