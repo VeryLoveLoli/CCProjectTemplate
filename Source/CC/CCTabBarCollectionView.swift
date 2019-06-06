@@ -53,6 +53,7 @@ open class CCTabBarCollectionView: CCCollectionView {
         super.awakeFromNib()
         
         collectionView.addSubview(sliderImageView)
+        update(false)
     }
     
     // MARK: - UICollectionViewDelegate
@@ -104,7 +105,7 @@ open class CCTabBarCollectionView: CCCollectionView {
     /**
      更新
      */
-    open func update() {
+    open func update(_ isAnimate: Bool = true) {
         
         for i in 0..<source.array.count {
             
@@ -150,7 +151,7 @@ open class CCTabBarCollectionView: CCCollectionView {
             
             let imageSize = sliderSize ?? CGSize.init(width: 3, height: cellSize.height)
             
-            UIView.animate(withDuration: sliderAnimateTime) {
+            UIView.animate(withDuration: isAnimate ? sliderAnimateTime : 0) {
                 
                 self.sliderImageView.frame = CGRect.init(origin: CGPoint.init(x: cellSize.width - imageSize.width, y: cellSize.height*CGFloat(self.index) + (cellSize.height - imageSize.height)/2), size: imageSize)
             }
@@ -183,7 +184,7 @@ open class CCTabBarCollectionView: CCCollectionView {
             
             let imageSize = sliderSize ?? CGSize.init(width: 0.8*cellSize.width, height: 3)
             
-            UIView.animate(withDuration: sliderAnimateTime) {
+            UIView.animate(withDuration: isAnimate ? sliderAnimateTime : 0) {
                 
                 self.sliderImageView.frame = CGRect.init(origin: CGPoint.init(x: cellSize.width*CGFloat(self.index) + (cellSize.width - imageSize.width)/2, y: cellSize.height - imageSize.height), size: imageSize)
             }

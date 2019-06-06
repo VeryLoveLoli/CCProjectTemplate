@@ -80,6 +80,11 @@ open class CCTabBarCollectionViewController: CCCollectionViewController {
             
             return JSONValue()
         }
+        
+        for i in 0..<list.count {
+            
+            collectionView.register(CCCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "Cell\(i)")
+        }
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -93,12 +98,15 @@ open class CCTabBarCollectionViewController: CCCollectionViewController {
     
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell\(indexPath.row)", for: indexPath)
         
         let vc = list[indexPath.row]
-        vc.view.removeFromSuperview()
-        cell.contentView.addSubview(vc.view)
-        vc.view.constraintForSuperview()
+        
+        if vc.view.superview == nil {
+            
+            cell.contentView.addSubview(vc.view)
+            vc.view.constraintForSuperview()
+        }
         
         return cell
     }
