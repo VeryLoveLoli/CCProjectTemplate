@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Phs-OJ-y4L" customClass="CCTableViewHeaderFooterView" customModule="CCProjectTemplateTest" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Phs-OJ-y4L" customClass="CCTableViewHeaderFooterView" customModule="Fiction" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -23,7 +23,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="lzf-DU-fNu" firstAttribute="leading" secondItem="fPF-cp-yX4" secondAttribute="leading" constant="12" id="7Ut-T8-fQX"/>
                 <constraint firstItem="fPF-cp-yX4" firstAttribute="bottom" secondItem="lzf-DU-fNu" secondAttribute="bottom" constant="12" id="Cdi-6W-hrY"/>
