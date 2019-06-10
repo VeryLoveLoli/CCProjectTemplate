@@ -257,11 +257,25 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         
         if kind == UICollectionView.elementKindSectionHeader {
             
-            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+            
+            if let cc = header as? CCCollectionViewHeaderFooterView {
+                
+                cc.update(source[indexPath.section].header)
+            }
+            
+            return header
         }
         else if kind == UICollectionView.elementKindSectionFooter {
             
-            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            
+            if let cc = footer as? CCCollectionViewHeaderFooterView {
+                
+                cc.update(source[indexPath.section].footer)
+            }
+            
+            return footer
         }
         else {
             
