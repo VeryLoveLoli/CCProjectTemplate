@@ -25,18 +25,7 @@ open class CCBannerCollectionViewCell: CCCollectionViewCell {
      */
     open override func update(_ json: JSONValue) {
         
+        icon?.load(json.icon_url.number.string, defaultImage: UIImage.init(named: json.icon.number.string))
         title?.text = json.title.number.string
-        
-        if !json.icon.number.string.isEmpty {
-            
-            icon?.image = UIImage.init(named: json.icon.number.string)
-        }
-        
-        if !json.icon_url.number.string.isEmpty {
-            
-            icon?.load(json.icon_url.number.string)
-        }
-        
-        
     }
 }
