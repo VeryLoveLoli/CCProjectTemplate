@@ -185,3 +185,64 @@ public extension UIImage {
         return (data[pixelInfo], data[pixelInfo+1], data[pixelInfo+2], data[pixelInfo+3])
     }
 }
+
+// MARK: - 存储
+
+extension UIImage {
+    
+    /**
+     保存图片
+     
+     - parameter    filePath:   文件路径
+     */
+    func save(_ filePath: String) -> Bool {
+        
+        var jp = pngData()
+        
+        if jp == nil {
+            
+            jp = jpegData(compressionQuality: 1)
+        }
+        
+        if let data = jp {
+            
+            do {
+                
+                try data.write(to: URL.init(fileURLWithPath: filePath))
+                
+                return true
+                
+            } catch {
+                
+                #if DEBUG
+                print(error)
+                #endif
+                
+                return false
+            }
+        }
+        else {
+            
+            return false
+        }
+    }
+    
+    /**
+     获取磁盘图片
+     
+     - parameter    filePath:   文件路径
+     */
+    static func disk(_ filePath: String) -> UIImage? {
+        
+        do {
+            
+            let data = try Data.init(contentsOf: URL.init(fileURLWithPath: filePath))
+            
+            return UIImage.init(data: data)
+            
+        } catch {
+            
+            return nil
+        }
+    }
+}
