@@ -20,7 +20,7 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
     public static var preferredStatusBarUpdateAnimation: UIStatusBarAnimation = .fade
     
     /// 返回按钮图片
-    public static var backBarItemImage = UIImage.init(named: "CC_back")
+    public static var backBarItemImage = UIImage.init(named: "CC_back_bar_white")
     /// 返回按钮文字
     public static var backBarItemTitle = ""
     /// 返回按钮文字颜色
@@ -63,7 +63,7 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
         
         didSet {
             
-            if isHiddeBackBarItem {
+            if !isHiddeBackBarItem {
                 
                 addNavBarItem(backBarItemImage, title: backBarItemTitle, titleColor: backBarItemTitleColor, direction: .left, action: #selector(backEvent))
             }

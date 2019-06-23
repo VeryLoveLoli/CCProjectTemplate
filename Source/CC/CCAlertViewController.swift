@@ -198,7 +198,7 @@ open class CCAlertViewController: CCViewController {
     }
     
     /**
-     确定
+     取消
      */
     @IBAction func cancel(_ sender: Any? = nil) {
         
