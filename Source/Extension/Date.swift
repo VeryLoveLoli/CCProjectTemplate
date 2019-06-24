@@ -26,4 +26,18 @@ public extension Date {
         
         return formatter.string(from: self)
     }
+    
+    /**
+     时间格式化
+     
+     - parameter    string:         格式  例如:yyyy-MM-dd HH:mm:ss.SSS
+     - parameter    dateString:     时间字符串（按照string格式）
+     */
+    static func format(_ string: String = "yyyy-MM-dd HH:mm:ss", dateString: String) -> Date? {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = string
+        
+        return formatter.date(from: dateString)
+    }
 }

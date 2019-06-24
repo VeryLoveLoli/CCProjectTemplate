@@ -173,6 +173,8 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
                     
                     self.source = array.json
                     
+                    self.isShowEmptyCell = array.isEmpty
+                    
                     self.collectionView.reloadData()
                 }
                 else if !self.isShowEmptyCell {

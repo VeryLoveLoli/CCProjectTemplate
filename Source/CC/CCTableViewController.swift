@@ -172,6 +172,8 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
                     
                     self.source = array.json
                     
+                    self.isShowEmptyCell = array.isEmpty
+                    
                     self.tableView.reloadData()
                 }
                 else if !self.isShowEmptyCell {
