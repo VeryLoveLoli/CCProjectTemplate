@@ -82,10 +82,29 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
     open override var preferredStatusBarStyle: UIStatusBarStyle { get { return CCViewController.preferredStatusBarStyle} }
     open override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation { get { return CCViewController.preferredStatusBarUpdateAnimation } }
     
+    open var statusBar = CCViewController.preferredStatusBarStyle {
+        
+        didSet {
+            
+            if statusBar == .default {
+                
+                navigationController?.navigationBar.barStyle = .default
+            }
+            else {
+                
+                navigationController?.navigationBar.barStyle = .black
+            }
+            
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+
     // MARK: - Activity
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        
+        statusBar = CCViewController.preferredStatusBarStyle
         
         isHiddeBackBarItem = navigationController?.viewControllers.first == nil || navigationController?.viewControllers.first == self
     }
