@@ -23,6 +23,7 @@
 		5E0A67E522A6BBB6000EC53D /* CCBannerCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A67E422A6BBB6000EC53D /* CCBannerCollectionView.xib */; };
 		5E0A67E722A6BC07000EC53D /* CCBannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A67E622A6BC07000EC53D /* CCBannerCollectionViewCell.xib */; };
 		5E0A67E922A6BC26000EC53D /* CCBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A67E822A6BC26000EC53D /* CCBannerCollectionViewCell.swift */; };
+		5E1C55EF236577F4004048B9 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C55EE236577F4004048B9 /* AES.swift */; };
 		5E3FEBF522A5741F0034EF54 /* CCTabBarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */; };
 		5E3FEBF722A575F50034EF54 /* CCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */; };
 		5E3FEBF922A576050034EF54 /* CCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FEBF822A576050034EF54 /* CCTableView.swift */; };
@@ -90,6 +91,7 @@
 		5E0A67E422A6BBB6000EC53D /* CCBannerCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCBannerCollectionView.xib; sourceTree = "<group>"; };
 		5E0A67E622A6BC07000EC53D /* CCBannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCBannerCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E0A67E822A6BC26000EC53D /* CCBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		5E1C55EE236577F4004048B9 /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		5E3FEBF422A5741F0034EF54 /* CCTabBarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarCollectionViewController.swift; sourceTree = "<group>"; };
 		5E3FEBF622A575F50034EF54 /* CCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCCollectionView.swift; sourceTree = "<group>"; };
 		5E3FEBF822A576050034EF54 /* CCTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTableView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				5E9F038A22A421B700E23597 /* UIViewController.swift */,
 				5E0A67DE22A6BA4B000EC53D /* String.swift */,
 				5E039A2C22A7EE440071E68D /* UIImage.swift */,
+				5E1C55EE236577F4004048B9 /* AES.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				5E9F03B422A421B700E23597 /* CCCollectionViewWaterfallsFlowLayout.swift in Sources */,
 				5E9F03C022A421B700E23597 /* CCTableViewController.swift in Sources */,
 				5E9F03A822A421B700E23597 /* Date.swift in Sources */,
+				5E1C55EF236577F4004048B9 /* AES.swift in Sources */,
 				5E9F03B022A421B700E23597 /* UIViewController.swift in Sources */,
 				5E9F03C322A421B700E23597 /* CCNavigationController.swift in Sources */,
 				5E0A67E322A6BB54000EC53D /* CCBannerCollectionView.swift in Sources */,

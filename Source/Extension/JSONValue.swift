@@ -8,7 +8,6 @@
 
 import Foundation
 import JSONValue
-import TEA
 
 // MARK: - 存储
 
@@ -50,7 +49,7 @@ public extension JSONValue {
      */
     func save(_ filePath: String, isPrettyPrinted: Bool = false, level: String = "") -> Bool {
         
-        let data = self.JSONFormatData()
+        let data = JSONFormatData()
         
         do {
             
@@ -68,6 +67,8 @@ public extension JSONValue {
         }
     }
 }
+
+import TEA
 
 // MARK: - 存储（TEA）
 
@@ -136,9 +137,72 @@ public extension JSONValue {
      */
     func saveTEA(_ tea: TEA, filePath: String) -> Bool {
         
-        var data = self.JSONFormatData()
+        var data = JSONFormatData()
         
         data = tea.encrypt(data)
+        
+        do {
+            
+            try data.write(to: URL.init(fileURLWithPath: filePath))
+            
+            return true
+            
+        } catch  {
+            
+            #if DEBUG
+            print(error)
+            #endif
+            
+            return false
+        }
+    }
+}
+
+import CryptoSwift
+
+// MARK: - 存储（AES）
+
+public extension JSONValue {
+        
+    /**
+     磁盘
+     
+     - parameter    aes:        TEA密钥
+     - parameter    filePath:   文件路径
+     
+     - returns: JSONValue
+     */
+    static func diskAES(_ aes: AES, filePath: String) -> JSONValue {
+        
+        do {
+            
+            let diskData = try Data.init(contentsOf: URL.init(fileURLWithPath: filePath))
+            
+            guard let data = aes.decrypt(diskData) else { return JSONValue() }
+            
+            return data.json
+            
+        } catch {
+            
+            #if DEBUG
+            print(error)
+            #endif
+            
+            return JSONValue()
+        }
+    }
+    
+    /**
+     保存
+     
+     - parameter    aes:        AES密钥
+     - parameter    filePath:   文件路径
+     
+     - returns: Bool    是否成功
+     */
+    func saveAES(_ aes: AES, filePath: String) -> Bool {
+                
+        guard let data = aes.encrypt(JSONFormatData()) else { return false }
         
         do {
             

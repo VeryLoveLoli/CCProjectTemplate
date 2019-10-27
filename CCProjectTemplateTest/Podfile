@@ -5,12 +5,19 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'CCProjectTemplateTest' do
-
+  
+    # source 'https://github.com/VeryLoveLoli/CocoaPodsSource.git'
+    
     pod 'JSONValue',    '1.0-master'
     pod 'XMLValue',     '1.0-master'
     pod 'TEA',          '1.0-master'
     pod 'Network',      '1.0-master'
     pod 'DragLoad',     '1.0-master'
     pod 'Prompt',       '1.0-master'
+    
+    # source 'https://github.com/CocoaPods/Specs.git'
+    
+    pod 'CryptoSwift'
+    
 end
 
