@@ -13,30 +13,87 @@ import TEA
 // MARK: - 存储
 
 public extension JSONValue {
-    
-    /// TEA
-    static var tea = TEA.init(5, key: (1219719899,2901921256, 3018872983, 3069152560))
-    
+        
     /**
      磁盘
      
      - parameter    filePath:   文件路径
-     - parameter    tea:        是否TEA加密
      
      - returns: JSONValue
      */
-    static func disk(_ filePath: String, tea: TEA? = JSONValue.tea) -> JSONValue {
+    static func disk(_ filePath: String) -> JSONValue {
+        
+        do {
+            
+            let data = try Data.init(contentsOf: URL.init(fileURLWithPath: filePath))
+            
+            return data.json
+            
+        } catch {
+            
+            #if DEBUG
+            print(error)
+            #endif
+            
+            return JSONValue()
+        }
+    }
+    
+    /**
+     保存
+     
+     - parameter    filePath:           文件路径
+     - parameter    isPrettyPrinted:    是否漂亮的格式
+     - parameter    level:              层次字符串
+     
+     - returns: Bool    是否成功
+     */
+    func save(_ filePath: String, isPrettyPrinted: Bool = false, level: String = "") -> Bool {
+        
+        let data = self.JSONFormatData()
+        
+        do {
+            
+            try data.write(to: URL.init(fileURLWithPath: filePath))
+            
+            return true
+            
+        } catch  {
+            
+            #if DEBUG
+            print(error)
+            #endif
+            
+            return false
+        }
+    }
+}
+
+// MARK: - 存储（TEA）
+
+public extension JSONValue {
+        
+    /**
+     磁盘
+     
+     - parameter    tea:        TEA密钥
+     - parameter    filePath:   文件路径
+     
+     - returns: JSONValue
+     */
+    static func diskTEA(_ tea: TEA, filePath: String) -> JSONValue {
         
         do {
             
             var data = try Data.init(contentsOf: URL.init(fileURLWithPath: filePath))
             
-            if let teaData = tea?.decrypt(data) {
+            data = tea.decrypt(data)
+            
+            /// 是否是TEA解密数据（TEA 每次加密8位、不足会补位）
+            if data.count%8 == 0 && data.count >= 8 {
                 
-                data = teaData
-                
-                /// 清除末尾多余'\0'
-                for _ in 0..<data.count {
+                /// 还原数据（清除末尾多余'\0'）
+                for _ in 0..<8 {
                     
                     if data[data.count-1] == 0 {
                         
@@ -47,15 +104,16 @@ public extension JSONValue {
                         break
                     }
                 }
-            }
-            
-            if data.count == 0 {
                 
-                return JSONValue()
+                return data.json
             }
             else {
                 
-                return data.json
+                #if DEBUG
+                print("error: \(filePath) not tea file")
+                #endif
+                
+                return JSONValue()
             }
             
         } catch {
@@ -71,19 +129,16 @@ public extension JSONValue {
     /**
      保存
      
+     - parameter    tea:        TEA密钥
      - parameter    filePath:   文件路径
-     - parameter    tea:        是否TEA加密
      
      - returns: Bool    是否成功
      */
-    func save(_ filePath: String, tea: TEA? = JSONValue.tea) -> Bool {
+    func saveTEA(_ tea: TEA, filePath: String) -> Bool {
         
         var data = self.JSONFormatData()
         
-        if let teaData = tea?.encrypt(data) {
-            
-            data = teaData
-        }
+        data = tea.encrypt(data)
         
         do {
             
