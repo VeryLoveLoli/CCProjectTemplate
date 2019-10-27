@@ -114,3 +114,17 @@ public extension FileManager {
         }
     }
 }
+
+// MARK: - 应用文件夹路径
+
+public extension FileManager {
+    
+    /// 文件资料路径
+    static let documentsPath = NSHomeDirectory() + "/Documents/"
+    /// 库路径
+    static let libraryPath = NSHomeDirectory() + "/Library/"
+    /// 缓存路径
+    static let tmpPath = NSHomeDirectory() + "/tmp/"
+    /// 系统数据路径
+    static let systemDataPath = NSHomeDirectory() + "/SystemData/"
+}

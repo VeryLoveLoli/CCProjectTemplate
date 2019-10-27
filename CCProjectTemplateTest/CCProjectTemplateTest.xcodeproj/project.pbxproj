@@ -69,8 +69,8 @@
 		5E9F03C422A421B700E23597 /* CCCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F039F22A421B700E23597 /* CCCollectionViewController.swift */; };
 		5E9F03C522A421B700E23597 /* CCCollectionViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F03A022A421B700E23597 /* CCCollectionViewHeaderFooterView.swift */; };
 		5E9F03C622A421B700E23597 /* CCImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F03A122A421B700E23597 /* CCImagePickerControllerDelegate.swift */; };
-		5EB60E2B22A946E2009BCBBF /* CCDataModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB60E2A22A946E2009BCBBF /* CCDataModelProtocol.swift */; };
-		5EB60E2D22A94757009BCBBF /* CCDataModelKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB60E2C22A94757009BCBBF /* CCDataModelKeyProtocol.swift */; };
+		5EB60E2B22A946E2009BCBBF /* CCJSONValueModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB60E2A22A946E2009BCBBF /* CCJSONValueModelProtocol.swift */; };
+		5EB60E2D22A94757009BCBBF /* CCJSONValueModelKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB60E2C22A94757009BCBBF /* CCJSONValueModelKeyProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,8 +139,8 @@
 		5E9F039F22A421B700E23597 /* CCCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCCollectionViewController.swift; sourceTree = "<group>"; };
 		5E9F03A022A421B700E23597 /* CCCollectionViewHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCCollectionViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		5E9F03A122A421B700E23597 /* CCImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCImagePickerControllerDelegate.swift; sourceTree = "<group>"; };
-		5EB60E2A22A946E2009BCBBF /* CCDataModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCDataModelProtocol.swift; sourceTree = "<group>"; };
-		5EB60E2C22A94757009BCBBF /* CCDataModelKeyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCDataModelKeyProtocol.swift; sourceTree = "<group>"; };
+		5EB60E2A22A946E2009BCBBF /* CCJSONValueModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCJSONValueModelProtocol.swift; sourceTree = "<group>"; };
+		5EB60E2C22A94757009BCBBF /* CCJSONValueModelKeyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCJSONValueModelKeyProtocol.swift; sourceTree = "<group>"; };
 		7C959E4A7F9703614E1E40B3 /* Pods-CCProjectTemplateTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCProjectTemplateTest.debug.xcconfig"; path = "Target Support Files/Pods-CCProjectTemplateTest/Pods-CCProjectTemplateTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,8 +281,8 @@
 				5E0A67E022A6BAE4000EC53D /* CCXIBProtocol.swift */,
 				5E0A67E222A6BB54000EC53D /* CCBannerCollectionView.swift */,
 				5E0A67E822A6BC26000EC53D /* CCBannerCollectionViewCell.swift */,
-				5EB60E2A22A946E2009BCBBF /* CCDataModelProtocol.swift */,
-				5EB60E2C22A94757009BCBBF /* CCDataModelKeyProtocol.swift */,
+				5EB60E2A22A946E2009BCBBF /* CCJSONValueModelProtocol.swift */,
+				5EB60E2C22A94757009BCBBF /* CCJSONValueModelKeyProtocol.swift */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				5E9F03C522A421B700E23597 /* CCCollectionViewHeaderFooterView.swift in Sources */,
 				5E0A67D922A6B901000EC53D /* CCView.swift in Sources */,
 				5E9F03A922A421B700E23597 /* UIView.swift in Sources */,
-				5EB60E2D22A94757009BCBBF /* CCDataModelKeyProtocol.swift in Sources */,
+				5EB60E2D22A94757009BCBBF /* CCJSONValueModelKeyProtocol.swift in Sources */,
 				5E0A67DB22A6B931000EC53D /* CCTabBarCollectionViewCell.swift in Sources */,
 				5E9F031622A4125F00E23597 /* ViewController.swift in Sources */,
 				5E0A67E922A6BC26000EC53D /* CCBannerCollectionViewCell.swift in Sources */,
@@ -448,7 +448,7 @@
 				5E9F03BE22A421B700E23597 /* CCCollectionViewCell.swift in Sources */,
 				5E9F03B722A421B700E23597 /* CCPlayerView.swift in Sources */,
 				5E9F03BF22A421B700E23597 /* CCWebViewController.swift in Sources */,
-				5EB60E2B22A946E2009BCBBF /* CCDataModelProtocol.swift in Sources */,
+				5EB60E2B22A946E2009BCBBF /* CCJSONValueModelProtocol.swift in Sources */,
 				5E9F03B522A421B700E23597 /* CCWebJSViewController.swift in Sources */,
 				5E9F03AB22A421B700E23597 /* Array.swift in Sources */,
 				5E0A67DD22A6B94E000EC53D /* CCTabBarCollectionView.swift in Sources */,

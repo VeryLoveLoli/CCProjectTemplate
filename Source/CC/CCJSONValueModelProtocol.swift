@@ -1,0 +1,69 @@
+//
+//  CCJSONValueModelProtocol.swift
+//  CCProjectTemplateTest
+//
+//  Created by 韦烽传 on 2019/6/6.
+//  Copyright © 2019 韦烽传. All rights reserved.
+//
+
+import Foundation
+import JSONValue
+import TEA
+
+/**
+ CCJSONValue模型协议
+ */
+public protocol CCJSONValueModelProtocol {
+    
+    /// JSON
+    var json: JSONValue { get set }
+        
+    /**
+     下标
+     */
+    subscript(_ key: CCJSONValueModelKeyProtocol) -> JSONValue { get set }
+}
+
+/*
+// MARK: - 实现属性
+
+/// json存储Key
+private var json_key: UInt8 = 0
+
+public extension CCJSONValueModelProtocol {
+    
+    /// 通用存储属性
+    var json: JSONValue {
+        
+        get {
+            
+            return objc_getAssociatedObject(self, &json_key) as? JSONValue ?? JSONValue()
+        }
+        set {
+            
+            objc_setAssociatedObject(self, &json_key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+}
+*/
+
+// MARK: - 实现下标
+
+public extension CCJSONValueModelProtocol {
+    
+    /**
+     下标
+     */
+    subscript(_ key: CCJSONValueModelKeyProtocol) -> JSONValue {
+        
+        get {
+            
+            return json[key.rawValue]
+        }
+        
+        set {
+            
+            json[key.rawValue] = newValue
+        }
+    }
+}

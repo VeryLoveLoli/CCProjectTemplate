@@ -49,6 +49,8 @@ public extension JSONValue {
      */
     func save(_ filePath: String, isPrettyPrinted: Bool = false, level: String = "") -> Bool {
         
+        guard filePath.createDirectoryFromFilePath() else { return false }
+        
         let data = JSONFormatData()
         
         do {
@@ -137,6 +139,8 @@ public extension JSONValue {
      */
     func saveTEA(_ tea: TEA, filePath: String) -> Bool {
         
+        guard filePath.createDirectoryFromFilePath() else { return false }
+        
         var data = JSONFormatData()
         
         data = tea.encrypt(data)
@@ -201,7 +205,9 @@ public extension JSONValue {
      - returns: Bool    是否成功
      */
     func saveAES(_ aes: AES, filePath: String) -> Bool {
-                
+        
+        guard filePath.createDirectoryFromFilePath() else { return false }
+        
         guard let data = aes.encrypt(JSONFormatData()) else { return false }
         
         do {
