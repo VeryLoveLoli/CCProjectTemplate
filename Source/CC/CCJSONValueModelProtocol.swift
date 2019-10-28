@@ -12,12 +12,14 @@ import TEA
 
 /**
  CCJSONValue模型协议
+ 
+ 重新实现对应的 CCJSONValueModelKeyProtocol 下标 可以直接 点出属性
  */
 public protocol CCJSONValueModelProtocol {
     
     /// JSON
     var json: JSONValue { get set }
-        
+    
     /**
      下标
      */
@@ -56,14 +58,32 @@ public extension CCJSONValueModelProtocol {
      */
     subscript(_ key: CCJSONValueModelKeyProtocol) -> JSONValue {
         
-        get {
-            
-            return json[key.rawValue]
-        }
-        
-        set {
-            
-            json[key.rawValue] = newValue
-        }
+        set { json[key.rawValue] = newValue }
+        get { json[key.rawValue] }
     }
 }
+
+/// 示例
+/*
+struct ExampleJSONModel: CCJSONValueModelProtocol {
+    
+    enum Key: String, CCJSONValueModelKeyProtocol {
+        
+        case id
+        //...
+    }
+    
+    var json: JSONValue
+    
+    init(_ value: JSONValue) {
+        
+        json = value
+    }
+    
+    subscript(key: Key) -> JSONValue {
+        
+        set { json[key.rawValue] = newValue }
+        get { json[key.rawValue] }
+    }
+}
+ */

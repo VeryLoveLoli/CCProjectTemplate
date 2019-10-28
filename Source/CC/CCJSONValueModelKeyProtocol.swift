@@ -16,6 +16,8 @@ import Foundation
  enum <#name#>: String, CCDataModelKeyProtocol {
      case <#case#>
  }
+ 
+ 在 CCJSONValueModelProtocol 类型内实现更好
  */
 public protocol CCJSONValueModelKeyProtocol {
     
