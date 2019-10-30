@@ -24,6 +24,7 @@ open class CCTableViewCell: UITableViewCell {
         
         textLabel?.text = json.text.number.string
         detailTextLabel?.text = json.detailText.number.string
-        imageView?.load(json.image.number.string)
+        imageView?.image = UIImage.init(named: json.image.number.string)
+        imageView?.load(json.image_url.number.string, defaultImage: imageView?.image)
     }
 }
