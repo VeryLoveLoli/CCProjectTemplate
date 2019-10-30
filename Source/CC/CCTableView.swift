@@ -258,8 +258,19 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
         }
         else {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CCTableViewCell
-            cell.update(isGroup ? source[indexPath.section].list[indexPath.row] : source[indexPath.row])
+            let item = isGroup ? source[indexPath.section].list[indexPath.row] : source[indexPath.row]
+            
+            var identifier = item.identifier.number.string
+            
+            if identifier.count == 0 {
+                
+                identifier = "Cell"
+            }
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CCTableViewCell
+            
+            cell.update(item)
+            
             return cell
         }
     }
@@ -338,11 +349,20 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
         }
         else if isGroup {
             
-            let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header")
+            let item = source[section].header
+            
+            var identifier = item.identifier.number.string
+            
+            if identifier.count == 0 {
+                
+                identifier = "Header"
+            }
+            
+            let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier)
             
             if let cc = cell as? CCTableViewHeaderFooterView {
                 
-                cc.update(source[section].header)
+                cc.update(item)
             }
             
             return cell
@@ -364,11 +384,20 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
         }
         else if isGroup {
             
+            let item = source[section].footer
+            
+            var identifier = item.identifier.number.string
+            
+            if identifier.count == 0 {
+                
+                identifier = "Footer"
+            }
+            
             let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Footer")
             
             if let cc = cell as? CCTableViewHeaderFooterView {
                 
-                cc.update(source[section].footer)
+                cc.update(item)
             }
             
             return cell

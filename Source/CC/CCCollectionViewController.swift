@@ -246,8 +246,18 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         }
         else {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CCCollectionViewCell
-            cell.update(isGroup ? source[indexPath.section].list[indexPath.row] : source[indexPath.row])
+            let item = isGroup ? source[indexPath.section].list[indexPath.row] : source[indexPath.row]
+            
+            var identifier = item.identifier.number.string
+            
+            if identifier.count == 0 {
+                
+                identifier = "Cell"
+            }
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! CCCollectionViewCell
+            
+            cell.update(item)
             return cell
         }
     }
@@ -259,22 +269,54 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         
         if kind == UICollectionView.elementKindSectionHeader {
             
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+            let item = source[indexPath.section].header
+            
+            var identifier = item.identifier.number.string
+            
+            if identifier.count == 0 {
+                
+                if item.dictionary.count == 1 && (!item.height.isEmpty() || !item.width.isEmpty()) {
+                    
+                    identifier = "Empty"
+                }
+                else {
+                    
+                    identifier = "Header"
+                }
+            }
+            
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
             
             if let cc = header as? CCCollectionViewHeaderFooterView {
                 
-                cc.update(source[indexPath.section].header)
+                cc.update(item)
             }
             
             return header
         }
         else if kind == UICollectionView.elementKindSectionFooter {
             
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            let item = source[indexPath.section].footer
+            
+            var identifier = item.identifier.number.string
+            
+            if identifier.count == 0 {
+                
+                if item.dictionary.count == 1 && (!item.height.isEmpty() || !item.width.isEmpty()) {
+                    
+                    identifier = "Empty"
+                }
+                else {
+                    
+                    identifier = "Footer"
+                }
+            }
+            
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
             
             if let cc = footer as? CCCollectionViewHeaderFooterView {
                 
-                cc.update(source[indexPath.section].footer)
+                cc.update(item)
             }
             
             return footer
