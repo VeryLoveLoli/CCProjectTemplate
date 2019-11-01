@@ -110,6 +110,14 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
     open override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 11, *) {
+            
+        }
+        else {
+            
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         

@@ -87,6 +87,14 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
     open override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 11, *) {
+            
+        }
+        else {
+            
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         
