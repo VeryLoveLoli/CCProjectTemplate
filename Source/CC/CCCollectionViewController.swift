@@ -118,6 +118,8 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
             automaticallyAdjustsScrollViewInsets = false
         }
         
+        /// Xcode 11 Storyboard 默认为 UICollectionViewFlowLayout.automaticSize
+        (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.estimatedItemSize = CGSize.zero
         collectionView.delegate = self
         collectionView.dataSource = self
         
