@@ -20,14 +20,6 @@ open class CCPlayerViewController: CCViewController, CCPlayerViewProtocol {
     /// 播放记录路径
     public static var palyRecordPath = NSHomeDirectory() + "/Documents/CCPlayerViewPalyRecord"
     
-    /**
-     Storyboard
-     */
-    open override class func storyboard() -> Self {
-        
-        return storyboard(name: "CC", identifier: "CCPlayerViewController")
-    }
-    
     /// 播放视图
     @IBOutlet open weak var playerView: CCPlayerView!
     

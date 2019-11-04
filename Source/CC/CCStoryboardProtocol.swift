@@ -17,9 +17,16 @@ import UIKit
 public protocol CCStoryboardProtocol {
     
     /**
-     故事板初始化视图控制器，调用 storyboard(name: String, identifier: String)
+     故事板初始化视图控制器，调用 storyboard(_ name: String)
      */
     static func storyboard() -> Self
+    
+    /**
+     故事板初始化视图控制器，调用 storyboard(name: String, identifier: String)
+     
+     - parameter    name:           故事板名称
+     */
+    static func storyboard(_ name: String) -> Self
     
     /**
      故事板初始化视图控制器
@@ -36,6 +43,16 @@ public protocol CCStoryboardProtocol {
 }
 
 public extension CCStoryboardProtocol {
+    
+    /**
+     故事板初始化视图控制器，调用 storyboard(name: String, identifier: String)
+     
+     - parameter    name:           故事板名称
+     */
+    static func storyboard(_ name: String) -> Self {
+        
+        return storyboard(name: name, identifier: "\(Self.self)")
+    }
     
     /**
      故事板初始化视图控制器

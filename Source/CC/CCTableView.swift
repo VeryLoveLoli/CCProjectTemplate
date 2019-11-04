@@ -17,13 +17,21 @@ import Prompt
  */
 open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
     
-    /**
-     XIB
-     */
-    open override class func xib() -> Self {
-        
-        return xib(name: "CCTableView", index: 0)
-    }
+    /// 默认 Cell Identifier
+    public static let CellIdentifier = "Cell"
+    /// 默认 Header Identifier
+    public static let HeaderIdentifier = "Header"
+    /// 默认 Footer Identifier
+    public static let FooterIdentifier = "Footer"
+    /// 默认 空白 Cell、Header、Footer Identifier
+    public static let EmptyIdentifier = "Empty"
+    
+    /// 空数据Cell Nib名称
+    public static let EmptyCellNibName = "CCTableViewEmptyCell"
+    /// Header Nib名称
+    public static let HeaderNibName = "CCTableViewHeaderFooterView"
+    /// Footer Nib名称
+    public static let FooterNibName = "CCTableViewHeaderFooterView"
     
     /// 列表
     @IBOutlet open weak var tableView: DragLoadTableView!
@@ -50,43 +58,43 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             
             if let name = cellNibName {
                 
-                tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "Cell")
+                tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: CCTableView.CellIdentifier)
             }
         }
     }
     
     /// 修改空数据Cell
-    open var emptyCellNibName: String? = "CCTableViewEmptyCell" {
+    open var emptyCellNibName: String? {
         
         didSet {
             
             if let name = emptyCellNibName {
                 
-                tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "EmptyCell")
+                tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: CCTableView.EmptyIdentifier)
             }
         }
     }
     
     /// 设置Header
-    open var headerViewNibName: String? = "CCTableViewHeaderFooterView" {
+    open var headerNibName: String? {
         
         didSet {
             
-            if let name = headerViewNibName {
+            if let name = headerNibName {
                 
-                tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
+                tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: CCTableView.HeaderIdentifier)
             }
         }
     }
     
     /// 设置Footer
-    open var footerNibName: String? = "CCTableViewHeaderFooterView" {
+    open var footerNibName: String? {
         
         didSet {
             
             if let name = footerNibName {
                 
-                tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
+                tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: CCTableView.FooterIdentifier)
             }
         }
     }
@@ -112,25 +120,9 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             self?.networkLoading()
         }
         
-        if let name = cellNibName {
-            
-            tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "Cell")
-        }
-        
-        if let name = emptyCellNibName {
-            
-            tableView.register(UINib.init(nibName: name, bundle: nil), forCellReuseIdentifier: "EmptyCell")
-        }
-        
-        if let name = headerViewNibName {
-            
-            tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
-        }
-        
-        if let name = footerNibName {
-            
-            tableView.register(UINib.init(nibName: name, bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
-        }
+        headerNibName = CCTableView.HeaderNibName
+        footerNibName = CCTableView.FooterNibName
+        emptyCellNibName = CCTableView.EmptyCellNibName
     }
     
     // MARK: - NetworkLoading
@@ -254,7 +246,7 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
         
         if isShowEmptyCell {
             
-            return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as! CCTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: CCTableView.EmptyIdentifier, for: indexPath) as! CCTableViewCell
         }
         else {
             
@@ -264,7 +256,7 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             
             if identifier.count == 0 {
                 
-                identifier = "Cell"
+                identifier = CCTableView.CellIdentifier
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CCTableViewCell
@@ -355,7 +347,7 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             
             if identifier.count == 0 {
                 
-                identifier = "Header"
+                identifier = CCTableView.HeaderIdentifier
             }
             
             let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier)
@@ -390,10 +382,10 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             
             if identifier.count == 0 {
                 
-                identifier = "Footer"
+                identifier = CCTableView.FooterIdentifier
             }
             
-            let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Footer")
+            let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier)
             
             if let cc = cell as? CCTableViewHeaderFooterView {
                 

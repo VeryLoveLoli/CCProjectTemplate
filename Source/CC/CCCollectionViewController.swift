@@ -17,14 +17,6 @@ import Prompt
  */
 open class CCCollectionViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    /**
-     Storyboard
-     */
-    open override class func storyboard() -> Self {
-        
-        return storyboard(name: "CC", identifier: "CCCollectionViewController")
-    }
-    
     /// 集合
     @IBOutlet open weak var collectionView: DragLoadCollectionView!
     
@@ -42,67 +34,67 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
             
             if let name = cellNibName {
                 
-                collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "Cell")
-            }
-        }
-    }
-    
-    /// 修改空数据Cell
-    open var emptyCellNibName: String? = "CCCollectionViewEmptyCell" {
-        
-        didSet {
-            
-            if let name = emptyCellNibName {
-                
-                collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "EmptyCell")
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: CCCollectionView.CellIdentifier)
             }
         }
     }
     
     /// 设置Header
-    open var headerNibName: String? = "CCCollectionViewHeaderFooterView" {
+    open var headerNibName: String? {
         
         didSet {
             
             if let name = headerNibName {
                 
-                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CCCollectionView.HeaderIdentifier)
             }
         }
     }
     
     /// 设置Footer
-    open var footerNibName: String? = "CCCollectionViewHeaderFooterView" {
+    open var footerNibName: String? {
         
         didSet {
             
             if let name = footerNibName {
                 
-                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CCCollectionView.FooterIdentifier)
+            }
+        }
+    }
+    
+    /// 修改空数据Cell
+    open var emptyCellNibName: String? {
+        
+        didSet {
+            
+            if let name = emptyCellNibName {
+                
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: CCCollectionView.EmptyIdentifier)
             }
         }
     }
     
     /// 设置 Empty Header
-    open var emptyHeaderNibName: String? = "CCCollectionViewEmptyHeaderFooterView" {
+    open var emptyHeaderNibName: String? {
         
         didSet {
             
-            if let name = footerNibName {
+            if let name = emptyHeaderNibName {
                 
-                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Empty")
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CCCollectionView.EmptyIdentifier)
             }
         }
     }
     
     /// 设置 Empty Footer
-    open var emptyFooterNibName: String? = "CCCollectionViewEmptyHeaderFooterView" {
+    open var emptyFooterNibName: String? {
         
         didSet {
             
-            if let name = footerNibName {
+            if let name = emptyFooterNibName {
                 
-                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Empty")
+                collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CCCollectionView.EmptyIdentifier)
             }
         }
     }
@@ -140,35 +132,11 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
             self?.networkLoading()
         }
         
-        if let name = cellNibName {
-            
-            collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "Cell")
-        }
-        
-        if let name = emptyCellNibName {
-            
-            collectionView.register(UINib.init(nibName: name, bundle: nil), forCellWithReuseIdentifier: "EmptyCell")
-        }
-        
-        if let name = headerNibName {
-            
-            collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
-        }
-        
-        if let name = footerNibName {
-            
-            collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
-        }
-        
-        if let name = emptyHeaderNibName {
-            
-            collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Empty")
-        }
-        
-        if let name = emptyFooterNibName {
-            
-            collectionView.register(UINib.init(nibName: name, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Empty")
-        }
+        headerNibName = CCCollectionView.HeaderNibName
+        footerNibName = CCCollectionView.FooterNibName
+        emptyCellNibName = CCCollectionView.EmptyCellNibName
+        emptyHeaderNibName = CCCollectionView.EmptyHeaderFooterCellNibName
+        emptyFooterNibName = CCCollectionView.EmptyHeaderFooterCellNibName
     }
     
     // MARK: - NetworkLoading
@@ -286,7 +254,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         
         if isShowEmptyCell {
             
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCell", for: indexPath) as! CCCollectionViewCell
+            return collectionView.dequeueReusableCell(withReuseIdentifier: CCCollectionView.EmptyIdentifier, for: indexPath) as! CCCollectionViewCell
         }
         else {
             
@@ -296,7 +264,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
             
             if identifier.count == 0 {
                 
-                identifier = "Cell"
+                identifier = CCCollectionView.CellIdentifier
             }
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! CCCollectionViewCell
@@ -321,11 +289,11 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
                 
                 if item.dictionary.count == 1 && (!item.height.isEmpty() || !item.width.isEmpty()) {
                     
-                    identifier = "Empty"
+                    identifier = CCCollectionView.EmptyIdentifier
                 }
                 else {
                     
-                    identifier = "Header"
+                    identifier = CCCollectionView.HeaderIdentifier
                 }
             }
             
@@ -348,11 +316,11 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
                 
                 if item.dictionary.count == 1 && (!item.height.isEmpty() || !item.width.isEmpty()) {
                     
-                    identifier = "Empty"
+                    identifier = CCCollectionView.EmptyIdentifier
                 }
                 else {
                     
-                    identifier = "Footer"
+                    identifier = CCCollectionView.FooterIdentifier
                 }
             }
             
@@ -367,7 +335,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         }
         else {
             
-            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Empty", for: indexPath)
+            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CCCollectionView.EmptyIdentifier, for: indexPath)
         }
     }
     

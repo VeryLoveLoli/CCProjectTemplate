@@ -16,14 +16,6 @@ import JSONValue
 open class CCAlertViewController: CCViewController {
     
     /**
-     Storyboard
-     */
-    open override class func storyboard() -> Self {
-        
-        return storyboard(name: "CC", identifier: "CCAlertViewController")
-    }
-    
-    /**
      默认设置
      */
     open override class func defaultSetting(_ vc: UIViewController) {

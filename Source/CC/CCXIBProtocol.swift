@@ -38,6 +38,14 @@ public protocol CCXIBProtocol {
 public extension CCXIBProtocol {
     
     /**
+    故事板初始化视图，调用 storyboard(name: String, identifier: String)
+    */
+    static func xib() -> Self {
+        
+        return xib(name: "\(Self.self)", index: 0)
+    }
+    
+    /**
      XIB初始化视图
      
      - parameter    name:           XIB名称

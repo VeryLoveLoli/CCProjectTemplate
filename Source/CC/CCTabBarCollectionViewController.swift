@@ -15,14 +15,6 @@ import JSONValue
  */
 open class CCTabBarCollectionViewController: CCCollectionViewController {
     
-    /**
-     Storyboard
-     */
-    open override class func storyboard() -> Self {
-        
-        return storyboard(name: "CC", identifier: "CCTabBarCollectionViewController")
-    }
-    
     /// 标签栏集合视图
     @IBOutlet open weak var tabBarCollectionView: CCTabBarCollectionView?
     

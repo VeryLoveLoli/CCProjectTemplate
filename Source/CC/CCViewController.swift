@@ -31,7 +31,7 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
      */
     open class func storyboard() -> Self {
         
-        return storyboard(name: "CC", identifier: "CCViewController")
+        return storyboard("CC")
     }
     
     /**

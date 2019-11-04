@@ -15,14 +15,6 @@ import JSONValue
  */
 open class CCTabBarCollectionView: CCCollectionView {
     
-    /**
-     XIB
-     */
-    open override class func xib() -> Self {
-        
-        return xib(name: "CCTabBarCollectionView", index: 0)
-    }
-    
     /// 滑块
     open lazy var sliderImageView: UIImageView = {
         

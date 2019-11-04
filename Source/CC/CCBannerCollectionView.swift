@@ -15,14 +15,6 @@ open class CCBannerCollectionView: CCCollectionView {
     /// 时间间隔(在初始化前设置)
     public static var timeInterval: TimeInterval = 3
     
-    /**
-     XIB
-     */
-    open override class func xib() -> Self {
-        
-        return xib(name: "CCBannerCollectionView", index: 0)
-    }
-    
     /// 页码控制器
     @IBOutlet open weak var pageControl: UIPageControl?
     

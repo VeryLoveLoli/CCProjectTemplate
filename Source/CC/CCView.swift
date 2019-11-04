@@ -15,14 +15,6 @@ import UIKit
 open class CCView: UIView, CCXIBProtocol {
     
     /**
-     XIB
-     */
-    open class func xib() -> Self {
-        
-        return xib(name: "CCView", index: 0)
-    }
-    
-    /**
      默认设置
      */
     open class func defaultSetting(_ any: Any) {

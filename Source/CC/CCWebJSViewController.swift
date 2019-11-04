@@ -17,14 +17,6 @@ import Prompt
  */
 open class CCWebJSViewController: CCWebViewController, WKScriptMessageHandler {
     
-    /**
-     Storyboard
-     */
-    open override class func storyboard() -> Self {
-        
-        return storyboard(name: "CC", identifier: "CCWebJSViewController")
-    }
-    
     // MARK: - WKScriptMessageHandler
     
     /**

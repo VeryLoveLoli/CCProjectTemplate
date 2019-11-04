@@ -19,15 +19,7 @@ open class CCWebViewController: CCViewController, WKUIDelegate, WKNavigationDele
     
     /// 刷新图标
     public static var reloadImage = UIImage.init(named: "CC_web_reload")
-    
-    /**
-     Storyboard
-     */
-    open override class func storyboard() -> Self {
         
-        return storyboard(name: "CC", identifier: "CCWebViewController")
-    }
-    
     /// 地址
     open var urlString: String?
     /// 是否网页标题
