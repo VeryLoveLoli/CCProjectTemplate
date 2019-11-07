@@ -171,6 +171,8 @@ public extension UIViewController {
         
         let imagePickerController: UIImagePickerController = UIImagePickerController()
         
+        imagePickerController.mediaTypes = ["public.movie", "public.image"]
+        
         let delegate = CCImagePickerControllerDelegate.init()
         
         delegate.finishPickingMediaWithInfoBlock = { [weak self] (image) in

@@ -8,15 +8,16 @@
 
 import Foundation
 import UIKit
+import Photos
 
 /**
- CC图片选择控制器协议
+ CC图片/视频选择控制器协议
  */
 open class CCImagePickerControllerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    /// 完成图片选择
+    /// 完成图片/视频选择
     var finishPickingMediaWithInfoBlock: (UIImage?)->Void = {_ in}
-    /// 取消图片选择
+    /// 取消图片/视频选择
     var cancelBlock: ()->Void = {}
     
     // MARK: - UIImagePickerControllerDelegate
@@ -50,6 +51,11 @@ open class CCImagePickerControllerDelegate: NSObject, UIImagePickerControllerDel
                 default:
                     break
                 }
+            }
+            else if string == "public.movie" {
+                
+                photo = UIImage.init()
+                photo?.any = info
             }
             
         default:
