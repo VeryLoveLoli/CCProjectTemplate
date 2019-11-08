@@ -55,7 +55,7 @@ public extension String {
             path += "/"
         }
         
-        guard FileManager.default.fileExists(atPath: path) else { return true }
+        guard !FileManager.default.fileExists(atPath: path) else { return true }
         
         do {
             
