@@ -61,9 +61,9 @@ public extension UIViewController {
     /**
      提示拍照或选择相册
      
-     - parameter    isEditing: 是否编辑照片
+     - parameter    isEditing: 是否编辑照片/视频
      */
-    func alertCameraOrPhotoLibrary(_ isEditing: Bool = true, block: @escaping (UIImage)->Void) {
+    func alertCameraOrPhotoLibrary(_ isEditing: Bool = true, isImage: Bool = true, block: @escaping (UIImage, URL)->Void) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -73,7 +73,7 @@ public extension UIViewController {
             
             if self.cameraPermissions() {
                 
-                self.open(.camera, isEditing: isEditing, block: block)
+                self.open(.camera, isEditing: isEditing, isImage: isImage, block: block)
             }
             else {
                 
@@ -85,7 +85,7 @@ public extension UIViewController {
             
             if self.photoLibraryPermissions() {
                 
-                self.open(.photoLibrary, isEditing: isEditing, block: block)
+                self.open(.photoLibrary, isEditing: isEditing, isImage: isImage, block: block)
             }
             else {
                 
@@ -165,21 +165,28 @@ public extension UIViewController {
      打开相册/相机
      
      - parameter    type: .photoLibrary: 相册; .camera:打开相机
-     - parameter    isEditing: 是否编辑图片
+     - parameter    isEditing: 是否编辑图片/视频
      */
-    func open(_ type: UIImagePickerController.SourceType , isEditing: Bool, block: @escaping (UIImage)->Void) {
+    func open(_ type: UIImagePickerController.SourceType , isEditing: Bool, isImage: Bool, block: @escaping (UIImage, URL)->Void) {
         
         let imagePickerController: UIImagePickerController = UIImagePickerController()
         
-        imagePickerController.mediaTypes = ["public.movie", "public.image"]
+        if isImage {
+            
+            imagePickerController.mediaTypes = ["public.image"]
+        }
+        else {
+            
+            imagePickerController.mediaTypes = ["public.movie"]
+        }
         
         let delegate = CCImagePickerControllerDelegate.init()
         
-        delegate.finishPickingMediaWithInfoBlock = { [weak self] (image) in
+        delegate.finishPickingMediaWithInfoBlock = { [weak self] (image, url) in
             
-            if let image = image {
+            if let image = image, let url = url {
                 
-                block(image)
+                block(image, url)
             }
             
             self?.any = nil
