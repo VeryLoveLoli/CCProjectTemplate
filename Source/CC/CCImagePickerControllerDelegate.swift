@@ -78,11 +78,17 @@ open class CCImagePickerControllerDelegate: NSObject, UIImagePickerControllerDel
                     
                     asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset
                     
-                } else {
+                }
+                
+                if asset == nil {
                     
                     if let referenceURL = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
                         
-                        for kvItem in referenceURL.path.components(separatedBy: "&") {
+                        let options = PHFetchOptions.init()
+                        options.includeHiddenAssets = true
+                        options.includeAllBurstAssets = true
+                        
+                        for kvItem in (referenceURL.query ?? "").components(separatedBy: "&") {
                             
                             let kv = kvItem.components(separatedBy: "=")
                             
@@ -90,7 +96,7 @@ open class CCImagePickerControllerDelegate: NSObject, UIImagePickerControllerDel
                                 
                                 if kv[0] == "id" {
                                     
-                                    asset = PHAsset.fetchAssets(withBurstIdentifier: kv[1], options: nil).lastObject
+                                    asset = PHAsset.fetchAssets(withLocalIdentifiers: [kv[1]], options: options).lastObject
                                     
                                     break
                                 }
