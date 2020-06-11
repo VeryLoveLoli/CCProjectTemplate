@@ -63,7 +63,7 @@ public extension UIViewController {
      
      - parameter    isEditing: 是否编辑照片/视频
      */
-    func alertCameraOrPhotoLibrary(_ isEditing: Bool = true, isImage: Bool = true, block: @escaping (UIImage, URL)->Void) {
+    func alertCameraOrPhotoLibrary(_ isEditing: Bool = true, isImage: Bool = true, block: @escaping (UIImage, URL?)->Void) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -167,7 +167,7 @@ public extension UIViewController {
      - parameter    type: .photoLibrary: 相册; .camera:打开相机
      - parameter    isEditing: 是否编辑图片/视频
      */
-    func open(_ type: UIImagePickerController.SourceType , isEditing: Bool, isImage: Bool, block: @escaping (UIImage, URL)->Void) {
+    func open(_ type: UIImagePickerController.SourceType , isEditing: Bool, isImage: Bool, block: @escaping (UIImage, URL?)->Void) {
         
         let imagePickerController: UIImagePickerController = UIImagePickerController()
         
@@ -184,7 +184,7 @@ public extension UIViewController {
         
         delegate.finishPickingMediaWithInfoBlock = { [weak self] (image, url) in
             
-            if let image = image, let url = url {
+            if let image = image {
                 
                 block(image, url)
             }
