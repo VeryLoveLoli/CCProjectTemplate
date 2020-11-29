@@ -77,10 +77,8 @@ open class CCImagePickerControllerDelegate: NSObject, UIImagePickerControllerDel
                 if #available(iOS 11.0, *) {
                     
                     asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset
-                    
                 }
-                
-                if asset == nil {
+                else {
                     
                     if let referenceURL = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
                         
