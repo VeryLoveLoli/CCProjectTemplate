@@ -9,15 +9,15 @@ target 'CCProjectTemplateTest' do
     # source 'https://github.com/VeryLoveLoli/CocoaPodsSource.git'
     
     pod 'JSONValue',    '1.0-master'
-    pod 'XMLValue',     '1.0-master'
-    pod 'TEA',          '1.0-master'
+#    pod 'XMLValue',     '1.0-master'
+#    pod 'TEA',          '1.0-master'
     pod 'Network',      '1.0-master'
     pod 'DragLoad',     '1.0-master'
     pod 'Prompt',       '1.0-master'
     
     # source 'https://github.com/CocoaPods/Specs.git'
-    
-    pod 'CryptoSwift'
+    # 更新 Pods spec repo 太久了。。。 直接指向项目地址
+    pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :tag => "1.3.7"
     
 end
 

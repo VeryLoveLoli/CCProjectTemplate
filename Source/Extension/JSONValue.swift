@@ -70,6 +70,8 @@ public extension JSONValue {
     }
 }
 
+/*
+ *  TEA加密比较简单，而且轻量级数据AES加密时间和TEA差不多
 import TEA
 
 // MARK: - 存储（TEA）
@@ -161,6 +163,7 @@ public extension JSONValue {
         }
     }
 }
+*/
 
 import CryptoSwift
 

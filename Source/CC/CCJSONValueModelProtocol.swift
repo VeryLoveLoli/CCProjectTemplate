@@ -8,7 +8,6 @@
 
 import Foundation
 import JSONValue
-import TEA
 
 /**
  CCJSONValue模型协议
