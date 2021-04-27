@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="uT6-4F-QQh" customClass="CCCollectionViewHeaderFooterView" customModule="CCProjectTemplate">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlI-fR-DPw">
+                    <rect key="frame" x="12" y="56" width="390" height="794"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Mmo-Ga-Cbf"/>
+            <constraints>
+                <constraint firstItem="Mmo-Ga-Cbf" firstAttribute="trailing" secondItem="mlI-fR-DPw" secondAttribute="trailing" constant="12" id="aKR-bE-cYA"/>
+                <constraint firstItem="mlI-fR-DPw" firstAttribute="top" secondItem="Mmo-Ga-Cbf" secondAttribute="top" constant="12" id="dB1-we-ok3"/>
+                <constraint firstItem="Mmo-Ga-Cbf" firstAttribute="bottom" secondItem="mlI-fR-DPw" secondAttribute="bottom" constant="12" id="g8Q-vG-15i"/>
+                <constraint firstItem="mlI-fR-DPw" firstAttribute="leading" secondItem="Mmo-Ga-Cbf" secondAttribute="leading" constant="12" id="t1u-qj-Gwe"/>
+            </constraints>
+            <connections>
+                <outlet property="title" destination="mlI-fR-DPw" id="a98-77-q46"/>
+            </connections>
+            <point key="canvasLocation" x="35" y="109"/>
+        </view>
+    </objects>
+</document>
