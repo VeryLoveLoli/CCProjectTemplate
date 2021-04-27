@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://gitee.com/cchsora/CryptoSwift",
+        "state": {
+          "branch": null,
+          "revision": "5669f222e46c8134fb1f399c745fa6882b43532e",
+          "version": "1.3.8"
+        }
+      },
+      {
+        "package": "DragLoad",
+        "repositoryURL": "https://gitee.com/cchsora/DragLoad",
+        "state": {
+          "branch": "master",
+          "revision": "5259987eb7f6e7f258bf3a4e9c6c9aa3381193c5",
+          "version": null
+        }
+      },
+      {
+        "package": "JSONValue",
+        "repositoryURL": "https://gitee.com/cchsora/JSONValue",
+        "state": {
+          "branch": "master",
+          "revision": "859d8b5f8b2c429972eb25f815b552127f7a1773",
+          "version": null
+        }
+      },
+      {
+        "package": "Network",
+        "repositoryURL": "https://gitee.com/cchsora/Network",
+        "state": {
+          "branch": "master",
+          "revision": "68696d3d4b666121365ccc1af434858994493576",
+          "version": null
+        }
+      },
+      {
+        "package": "Prompt",
+        "repositoryURL": "https://gitee.com/cchsora/Prompt",
+        "state": {
+          "branch": "master",
+          "revision": "82491ab3d6d48f527ffb466b7166c0ed4493e512",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

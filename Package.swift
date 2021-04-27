@@ -16,11 +16,11 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/VeryLoveLoli/JSONValue", .branch("master")),
-        .package(url: "https://github.com/VeryLoveLoli/Network", .branch("master")),
-        .package(url: "https://github.com/VeryLoveLoli/Prompt", .branch("master")),
-        .package(url: "https://github.com/VeryLoveLoli/DragLoad", .branch("master")),
-        .package(url: "https://github.com/krzyzanowskim/CryptoSwift", .upToNextMinor(from: "1.3.8")),
+        .package(url: "https://gitee.com/cchsora/JSONValue", .branch("master")),
+        .package(url: "https://gitee.com/cchsora/Network", .branch("master")),
+        .package(url: "https://gitee.com/cchsora/Prompt", .branch("master")),
+        .package(url: "https://gitee.com/cchsora/DragLoad", .branch("master")),
+        .package(url: "https://gitee.com/cchsora/CryptoSwift", .upToNextMinor(from: "1.3.8")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
