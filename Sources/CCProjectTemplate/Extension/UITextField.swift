@@ -25,7 +25,7 @@ public extension UITextField {
         }
         else {
             
-            setValue(color, forKeyPath: "placeholderLabel.textColor")
+            setValue(color, forKeyPath: "_placeholderLabel.textColor")
         }
     }
     
@@ -42,7 +42,7 @@ public extension UITextField {
         }
         else {
             
-            setValue(font, forKeyPath: "placeholderLabel.font")
+            setValue(font, forKeyPath: "_placeholderLabel.font")
         }
     }
 }
