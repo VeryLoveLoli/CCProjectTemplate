@@ -29,6 +29,15 @@ public extension CCImagePickerControllerProtocol where Self: UIViewController {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        /// 适配 `iPad`
+        if alert.popoverPresentationController != nil {
+            
+            /// 去掉标记
+            alert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
+            alert.popoverPresentationController?.sourceView = view
+            alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: view.bounds.size.height, width: view.bounds.size.width, height: view.bounds.size.height)
+        }
+        
         alert.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: nil))
         
         alert.addAction(UIAlertAction.init(title: "拍照", style: .default, handler: { (action) in
