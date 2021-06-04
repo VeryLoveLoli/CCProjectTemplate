@@ -67,12 +67,6 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         collectionView.registerCell(CCCollectionView.EmptyCellNibName, bundle: .module, identifier: CCCollectionView.EmptyIdentifier)
     }
     
-    open override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        collectionView.reloadData()
-    }
-    
     // MARK: - NetworkLoading
     
     /**
