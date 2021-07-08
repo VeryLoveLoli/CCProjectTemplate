@@ -160,7 +160,7 @@ open class CCPickerAlertViewController: CCAlertViewController, UIPickerViewDeleg
     
     // MARK: - IBAction Event
     
-    @IBAction func complete(_ sender: UIButton) {
+    @IBAction open func complete(_ sender: UIButton) {
         
         self.saveSelectIndex()
         
@@ -183,7 +183,7 @@ open class CCPickerAlertViewController: CCAlertViewController, UIPickerViewDeleg
      - parameter    row:        行数
      - parameter    component:  列数
      */
-    func updateSelectTitleArray(_ row: Int, component: Int) {
+    open func updateSelectTitleArray(_ row: Int, component: Int) {
         
         self.selectTitleArray[component] = self.getSelectTitle(row, component: component).json
 
@@ -199,7 +199,7 @@ open class CCPickerAlertViewController: CCAlertViewController, UIPickerViewDeleg
      - parameter    row:        行数
      - parameter    component:  列数
      */
-    func getSelectTitle(_ row: Int, component: Int) -> String {
+    open func getSelectTitle(_ row: Int, component: Int) -> String {
         
         var data = self.dataSource
         
@@ -214,7 +214,7 @@ open class CCPickerAlertViewController: CCAlertViewController, UIPickerViewDeleg
     /**
      移动到上次选择
      */
-    func movePreviousSelect() {
+    open func movePreviousSelect() {
         
         let makeIndex = JSONValue.diskAES(CCPickerAlertViewController.aes, filePath: CCPickerAlertViewController.filePath)[self.selectIndexMake]
         
@@ -244,7 +244,7 @@ open class CCPickerAlertViewController: CCAlertViewController, UIPickerViewDeleg
     /**
      移动到指定选择
      */
-    func moveSelect() {
+    open func moveSelect() {
         
         for i in 0..<self.selectIndexArray.array.count {
             
@@ -257,7 +257,7 @@ open class CCPickerAlertViewController: CCAlertViewController, UIPickerViewDeleg
     /**
      保存本次选择
      */
-    func saveSelectIndex() {
+    open func saveSelectIndex() {
         
         var json = JSONValue.diskAES(CCPickerAlertViewController.aes, filePath: CCPickerAlertViewController.filePath)
         json[self.selectIndexMake] = self.selectIndexArray
