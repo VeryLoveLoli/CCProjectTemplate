@@ -220,7 +220,7 @@ open class CCWebViewController: CCViewController, WKUIDelegate, WKNavigationDele
         let configuration = WKWebViewConfiguration.init()
         configuration.preferences = preferences
         
-        let webView = WKWebView.init(frame: view.bounds, configuration: configuration)
+        let webView = WKWebView.init(frame: view?.bounds ?? .zero, configuration: configuration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         
