@@ -220,11 +220,18 @@ open class CCWebViewController: CCViewController, WKUIDelegate, WKNavigationDele
         let configuration = WKWebViewConfiguration.init()
         configuration.preferences = preferences
         
-        let webView = WKWebView.init(frame: view?.bounds ?? .zero, configuration: configuration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        
-        return webView
+        if let bounds = view?.bounds {
+            
+            let webView = WKWebView.init(frame: bounds, configuration: configuration)
+            webView.uiDelegate = self
+            webView.navigationDelegate = self
+            
+            return webView
+        }
+        else {
+            
+            return WKWebView.init(frame: .zero, configuration: configuration)
+        }
     }
     
     /**
