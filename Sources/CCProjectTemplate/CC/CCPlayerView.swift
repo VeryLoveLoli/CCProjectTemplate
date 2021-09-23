@@ -160,6 +160,8 @@ open class CCPlayerView: UIView {
             player.removeTimeObserver(observer)
             timeObserver = nil
         }
+        
+        player.replaceCurrentItem(with: nil)
     }
     
     /**
