@@ -29,6 +29,10 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
     public static var backBarItemSizeCompensate = CGSize(width: 5, height: 5)
     /// 返回按钮图标文字同时存在宽度补偿
     public static var backBarItemIconTitleWidthCompensate: CGFloat = 5
+    /// 返回按钮图标偏移
+    public static var backBarItemIconEdgeInsets: UIEdgeInsets = .zero
+    /// 返回按钮文字偏移
+    public static var backBarItemTitleEdgeInsets: UIEdgeInsets = .zero
     
     /**
      Storyboard
@@ -57,6 +61,14 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
     open var backBarItemTitle = CCViewController.backBarItemTitle
     /// 返回按钮文字颜色
     open var backBarItemTitleColor = CCViewController.backBarItemTitleColor
+    /// 返回按钮大小补偿
+    open var backBarItemSizeCompensate = CCViewController.backBarItemSizeCompensate
+    /// 返回按钮图标文字同时存在宽度补偿
+    open var backBarItemIconTitleWidthCompensate = CCViewController.backBarItemIconTitleWidthCompensate
+    /// 返回按钮图标偏移
+    open var backBarItemIconEdgeInsets = CCViewController.backBarItemIconEdgeInsets
+    /// 返回按钮文字偏移
+    open var backBarItemTitleEdgeInsets = CCViewController.backBarItemTitleEdgeInsets
     
     /// 是否隐藏导航
     open var isHiddenNavigationController = false
@@ -69,26 +81,23 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
             
             if !isHiddeBackBarItem {
                 
+                let customView = customNavBarItem(backBarItemImage, title: backBarItemTitle, titleColor: backBarItemTitleColor, imageEdgeInsets: backBarItemIconEdgeInsets, titleEdgeInsets: backBarItemIconEdgeInsets, action: #selector(backEvent))
+                
+                let item = UIBarButtonItem.init(customView: customView)
+                
+                navigationItem.leftBarButtonItem = nil
+                navigationItem.backBarButtonItem = nil
+                
                 if let items = navigationItem.leftBarButtonItems, items.count > 1 {
-                    
-                    let customView = customNavBarItem(backBarItemImage, title: backBarItemTitle, titleColor: backBarItemTitleColor, action: #selector(backEvent))
-                    
-                    let item = UIBarButtonItem.init(customView: customView)
                     
                     var list = items
                     list.append(item)
                     
-                    navigationItem.leftBarButtonItem = nil
-                    navigationItem.backBarButtonItem = nil
                     navigationItem.leftBarButtonItems = list
                 }
                 else {
                     
-                    navigationItem.leftBarButtonItems = nil
-                    navigationItem.leftBarButtonItem = nil
-                    navigationItem.backBarButtonItem = nil
-                    
-                    addNavBarItem(backBarItemImage, title: backBarItemTitle, titleColor: backBarItemTitleColor, direction: .left, action: #selector(backEvent))
+                    navigationItem.leftBarButtonItems = [item]
                 }
             }
             else {
@@ -237,7 +246,7 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
      - parameter    titleColor:     文字颜色
      - parameter    action:         点击事件
      */
-    open func customNavBarItem(_ image: UIImage?, title: String?, titleColor: UIColor?, sizeCompensate: CGSize = CCViewController.backBarItemSizeCompensate, iconTitleWidthCompensate: CGFloat = CCViewController.backBarItemIconTitleWidthCompensate, action: Selector) -> UIButton {
+    open func customNavBarItem(_ image: UIImage?, title: String?, titleColor: UIColor?, sizeCompensate: CGSize = CCViewController.backBarItemSizeCompensate, iconTitleWidthCompensate: CGFloat = CCViewController.backBarItemIconTitleWidthCompensate, imageEdgeInsets: UIEdgeInsets = .zero, titleEdgeInsets: UIEdgeInsets = .zero, action: Selector) -> UIButton {
         
         let button = UIButton.init(type: .custom)
         
@@ -249,6 +258,7 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
             button.setImage(icon, for: .normal)
             width += icon.size.width
             height += icon.size.height
+            button.imageEdgeInsets = imageEdgeInsets
         }
         
         if let t = title {
@@ -263,6 +273,7 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
                 
                 height = rect.size.height
             }
+            button.titleEdgeInsets = titleEdgeInsets
         }
         
         if image != nil && title != nil {
