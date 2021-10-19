@@ -25,6 +25,10 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
     public static var backBarItemTitle = ""
     /// 返回按钮文字颜色
     public static var backBarItemTitleColor = UIColor.white
+    /// 返回按钮大小补偿
+    public static var backBarItemSizeCompensate = CGSize(width: 5, height: 5)
+    /// 返回按钮图标文字同时存在宽度补偿
+    public static var backBarItemIconTitleWidthCompensate: CGFloat = 5
     
     /**
      Storyboard
@@ -233,12 +237,12 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
      - parameter    titleColor:     文字颜色
      - parameter    action:         点击事件
      */
-    open func customNavBarItem(_ image: UIImage?, title: String?, titleColor: UIColor?, action: Selector) -> UIButton {
+    open func customNavBarItem(_ image: UIImage?, title: String?, titleColor: UIColor?, sizeCompensate: CGSize = CCViewController.backBarItemSizeCompensate, iconTitleWidthCompensate: CGFloat = CCViewController.backBarItemIconTitleWidthCompensate, action: Selector) -> UIButton {
         
         let button = UIButton.init(type: .custom)
         
-        var width: CGFloat = 5
-        var height: CGFloat = 5
+        var width: CGFloat = 0
+        var height: CGFloat = 0
         
         if let icon = image {
             
@@ -255,14 +259,19 @@ open class CCViewController: UIViewController, CCStoryboardProtocol {
             button.setTitleColor(titleColor, for: .normal)
             let rect = t.boundingRect(with: CGSize(width: 10000, height: 20), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font ], context: nil)
             width += rect.size.width
-            height += rect.size.height
+            if height < rect.size.height {
+                
+                height = rect.size.height
+            }
         }
         
         if image != nil && title != nil {
             
-            width += 5
-            height += 5
+            width += iconTitleWidthCompensate
         }
+        
+        width += sizeCompensate.width
+        height += sizeCompensate.height
         
         button.frame = CGRect.init(x: 0, y: 0, width: width, height: height)
         button.addTarget(self, action: action, for: .touchUpInside)
