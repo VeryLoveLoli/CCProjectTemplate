@@ -14,8 +14,8 @@
         "package": "DragLoad",
         "repositoryURL": "https://gitee.com/cchsora/DragLoad",
         "state": {
-          "branch": "master",
-          "revision": "5259987eb7f6e7f258bf3a4e9c6c9aa3381193c5",
+          "branch": "1.0.0",
+          "revision": "05a3c7c087448943980d4d6e34082e1967d1d6b3",
           "version": null
         }
       },
@@ -23,7 +23,7 @@
         "package": "JSONValue",
         "repositoryURL": "https://gitee.com/cchsora/JSONValue",
         "state": {
-          "branch": "master",
+          "branch": "1.0.0",
           "revision": "859d8b5f8b2c429972eb25f815b552127f7a1773",
           "version": null
         }
@@ -32,8 +32,8 @@
         "package": "Network",
         "repositoryURL": "https://gitee.com/cchsora/Network",
         "state": {
-          "branch": "master",
-          "revision": "68696d3d4b666121365ccc1af434858994493576",
+          "branch": "2.0.0",
+          "revision": "0e4cc157c90a1d7f91819c10916e7dc1dcfa2bad",
           "version": null
         }
       },
@@ -41,7 +41,7 @@
         "package": "Prompt",
         "repositoryURL": "https://gitee.com/cchsora/Prompt",
         "state": {
-          "branch": "master",
+          "branch": "1.0.0",
           "revision": "82491ab3d6d48f527ffb466b7166c0ed4493e512",
           "version": null
         }

@@ -35,7 +35,7 @@ open class CCBannerCollectionViewCell: CCCollectionViewCell {
             defaultImage = UIImage(named: json.icon.number.string, in: json.iconModule.number.bool ? .module : .main, compatibleWith: nil)
         }
         
-        icon?.load(json.icon_url.number.string, defaultImage: defaultImage)
+        icon?.load(json.icon_url.number.string, defaultImage: defaultImage?.image())
         title?.text = json.title.number.string
     }
 }

@@ -27,6 +27,6 @@ open class CCTableViewCell: UITableViewCell {
         if !json.image.isEmpty() {
             imageView?.image = UIImage.init(named: json.image.number.string, in: json.imageModule.number.bool ? .module : .main, compatibleWith: nil)
         }
-        imageView?.load(json.image_url.number.string, defaultImage: imageView?.image)
+        imageView?.load(json.image_url.number.string, defaultImage: imageView?.image?.image())
     }
 }
