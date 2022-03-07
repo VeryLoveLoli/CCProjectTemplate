@@ -36,7 +36,12 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
     public static let EmptyHeaderFooterCellNibName = "CCCollectionViewEmptyHeaderFooterView"
     
     /// 集合
-    @IBOutlet open weak var collectionView: DragLoadCollectionView!
+    @IBOutlet open weak var collectionView: UICollectionView!
+    
+    /// 顶部加载视图（创建加载视图并设置拖动方向和偏移值）
+    open var topLoad = DragLoadTitleView(.down(DragLoad.offsetValue))
+    /// 底部加载视图（创建加载视图并设置拖动方向和偏移值）
+    open var bottomLoad = DragLoadTitleView(.up(DragLoad.offsetValue))
     
     /// 回调
     open var callback: (JSONValue)->JSONValue = {_ in return JSONValue()}
@@ -61,23 +66,31 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout, flow.scrollDirection == .horizontal {
             
-            collectionView.isVerticalScroll = flow.scrollDirection == .vertical
+            topLoad = DragLoadTitleView(.right(DragLoad.offsetValue))
+            bottomLoad = DragLoadTitleView(.left(DragLoad.offsetValue))
         }
         
-        collectionView.dragUpLoading = {[weak self] in
-            
-            self?.page += 1
-            self?.networkLoading()
-        }
+        collectionView.addSubview(topLoad)
         
-        collectionView.dragDownLoading = {[weak self] in
+        topLoad.isDragLoad = false
+        
+        topLoad.dragLoadCallback = {[weak self] in
             
             self?.page = 0
             self?.networkLoading()
         }
         
+        collectionView.addSubview(bottomLoad)
+        
+        bottomLoad.isDragLoad = false
+        
+        bottomLoad.dragLoadCallback = {[weak self] in
+            
+            self?.page += 1
+            self?.networkLoading()
+        }
         
         collectionView.registerHeader(CCCollectionView.HeaderNibName, bundle: .module)
         collectionView.registerFooter(CCCollectionView.FooterNibName, bundle: .module)
@@ -112,9 +125,9 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
         
         DispatchQueue.main.async {
             
-            if self.collectionView.dragUpView?.dragLoadStatus == .loading {
+            if self.bottomLoad.isDragLoad {
                 
-                self.collectionView.endDragUpLoading()
+                self.bottomLoad.loadEnd(self.collectionView)
                 
                 if bool {
                     
@@ -129,9 +142,9 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
             }
             else {
                 
-                if self.collectionView.dragDownView?.dragLoadStatus == .loading {
+                if self.topLoad.isDragLoad {
                     
-                    self.collectionView.endDragDownLoading()
+                    self.topLoad.loadEnd(self.collectionView)
                 }
                 
                 if bool {
@@ -151,7 +164,7 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
                 
             }
             
-            self.collectionView.isDragUp = array.count > 0
+            self.bottomLoad.isDragLoad = array.count > 0
             
             if !bool && !message.isEmpty {
                 

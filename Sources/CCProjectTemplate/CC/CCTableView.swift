@@ -34,7 +34,12 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
     public static let FooterNibName = "CCTableViewHeaderFooterView"
     
     /// 列表
-    @IBOutlet open weak var tableView: DragLoadTableView!
+    @IBOutlet open weak var tableView: UITableView!
+    
+    /// 顶部加载视图（创建加载视图并设置拖动方向和偏移值）
+    open var topLoad = DragLoadTitleView(.down(DragLoad.offsetValue))
+    /// 底部加载视图（创建加载视图并设置拖动方向和偏移值）
+    open var bottomLoad = DragLoadTitleView(.up(DragLoad.offsetValue))
     
     /// 回调
     open var callback: (JSONValue)->JSONValue = {_ in return JSONValue()}
@@ -60,15 +65,23 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.dragUpLoading = {[weak self] in
+        tableView.addSubview(topLoad)
+        
+        topLoad.isDragLoad = false
+        
+        topLoad.dragLoadCallback = {[weak self] in
             
-            self?.page += 1
+            self?.page = 0
             self?.networkLoading()
         }
         
-        tableView.dragDownLoading = {[weak self] in
+        tableView.addSubview(bottomLoad)
+        
+        bottomLoad.isDragLoad = false
+        
+        bottomLoad.dragLoadCallback = {[weak self] in
             
-            self?.page = 0
+            self?.page += 1
             self?.networkLoading()
         }
         
@@ -103,9 +116,9 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
         
         DispatchQueue.main.async {
             
-            if self.tableView.dragUpView?.dragLoadStatus == .loading {
+            if self.bottomLoad.isDragLoad {
                 
-                self.tableView.endDragUpLoading()
+                self.bottomLoad.loadEnd(self.tableView)
                 
                 if bool {
                     
@@ -120,9 +133,9 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
             }
             else {
                 
-                if self.tableView.dragDownView?.dragLoadStatus == .loading {
+                if self.topLoad.isDragLoad {
                     
-                    self.tableView.endDragDownLoading()
+                    self.topLoad.loadEnd(self.tableView)
                 }
                 
                 if bool {
@@ -142,7 +155,7 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
                 
             }
             
-            self.tableView.isDragUp = array.count > 0
+            self.bottomLoad.isDragLoad = array.count > 0
             
             if !bool && !message.isEmpty {
                 
