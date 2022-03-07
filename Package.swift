@@ -18,7 +18,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://gitee.com/cchsora/JSONValue", .branch("1.0.0")),
         .package(url: "https://gitee.com/cchsora/Network", .branch("2.0.0")),
-        .package(url: "https://gitee.com/cchsora/Prompt", .branch("1.0.0")),
+        .package(url: "https://gitee.com/cchsora/Prompt", .branch("2.0.0")),
         .package(url: "https://gitee.com/cchsora/DragLoad", .branch("1.0.0")),
         .package(url: "https://gitee.com/cchsora/CryptoSwift", .upToNextMinor(from: "1.3.8")),
     ],

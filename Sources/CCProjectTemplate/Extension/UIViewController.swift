@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Prompt
+import Network
 
 // MARK: - 提示
 
@@ -46,8 +47,10 @@ public extension UIViewController {
      - parameter    data:           GIF数据
      - parameter    isBackground:   是否显示背景（用于阻止用户点击）
      */
-    func promptGIF(_ data: Data, isBackground: Bool = false) -> Prompt {
+    func promptGIF(_ data: Data, isBackground: Bool = false) -> Prompt? {
         
-        return Prompt.gif(data, isBackground: isBackground, sup: view, location: view.center)
+        guard let image = Image(data, gifCacheSize: nil), image.format == .gif || image.format == .tiff else { return nil }
+        
+        return Prompt.gif(image.items, duration: image.duration, isBackground: isBackground, sup: view, location: view.center)
     }
 }
