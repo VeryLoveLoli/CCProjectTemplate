@@ -101,7 +101,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         
         DispatchQueue.main.async {
             
-            if self.bottomLoad.isDragLoad {
+            if self.bottomLoad.dragLoadStatus == .loading {
                 
                 self.bottomLoad.loadEnd(self.collectionView)
                 
@@ -118,7 +118,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
             }
             else {
                 
-                if self.topLoad.isDragLoad {
+                if self.topLoad.dragLoadStatus == .loading {
                     
                     self.topLoad.loadEnd(self.collectionView)
                 }

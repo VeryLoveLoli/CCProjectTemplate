@@ -95,7 +95,7 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
         
         DispatchQueue.main.async {
             
-            if self.bottomLoad.isDragLoad {
+            if self.bottomLoad.dragLoadStatus == .loading {
                 
                 self.bottomLoad.loadEnd(self.tableView)
                 

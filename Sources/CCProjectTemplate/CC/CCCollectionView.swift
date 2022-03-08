@@ -130,7 +130,7 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
         
         DispatchQueue.main.async {
             
-            if self.bottomLoad.isDragLoad {
+            if self.bottomLoad.dragLoadStatus == .loading {
                 
                 self.bottomLoad.loadEnd(self.collectionView)
                 
@@ -147,7 +147,7 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
             }
             else {
                 
-                if self.topLoad.isDragLoad {
+                if self.topLoad.dragLoadStatus == .loading {
                     
                     self.topLoad.loadEnd(self.collectionView)
                 }
