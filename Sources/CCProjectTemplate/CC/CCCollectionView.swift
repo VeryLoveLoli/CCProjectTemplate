@@ -35,13 +35,18 @@ open class CCCollectionView: CCView, UICollectionViewDelegate, UICollectionViewD
     /// 空白 Header、Footer Nib名称
     public static let EmptyHeaderFooterCellNibName = "CCCollectionViewEmptyHeaderFooterView"
     
+    /// 顶部加载视图
+    public static var TopLoad: ()->DragLoadView = { DragLoadTitleView(.down(DragLoad.offsetValue)) }
+    /// 底部加载视图
+    public static var BottomLoad: ()->DragLoadView = { DragLoadTitleView(.up(DragLoad.offsetValue)) }
+    
     /// 集合
     @IBOutlet open weak var collectionView: UICollectionView!
     
-    /// 顶部加载视图（创建加载视图并设置拖动方向和偏移值）
-    open var topLoad = DragLoadTitleView(.down(DragLoad.offsetValue))
-    /// 底部加载视图（创建加载视图并设置拖动方向和偏移值）
-    open var bottomLoad = DragLoadTitleView(.up(DragLoad.offsetValue))
+    /// 顶部加载视图
+    open var topLoad = CCCollectionView.TopLoad()
+    /// 底部加载视图
+    open var bottomLoad = CCCollectionView.BottomLoad()
     
     /// 回调
     open var callback: (JSONValue)->JSONValue = {_ in return JSONValue()}
