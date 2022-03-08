@@ -112,7 +112,7 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
             }
             else {
                 
-                if self.topLoad.isDragLoad {
+                if self.topLoad.dragLoadStatus == .loading {
                     
                     self.topLoad.loadEnd(self.tableView)
                 }
