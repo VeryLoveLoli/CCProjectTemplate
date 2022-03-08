@@ -50,8 +50,8 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
         
         if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout, flow.scrollDirection == .horizontal {
             
-            topLoad = DragLoadTitleView(.right(DragLoad.offsetValue))
-            bottomLoad = DragLoadTitleView(.left(DragLoad.offsetValue))
+            topLoad.dragLoadDirection = .right(DragLoad.offsetValue)
+            bottomLoad.dragLoadDirection = .left(DragLoad.offsetValue)
         }
         
         collectionView.addSubview(topLoad)
