@@ -42,9 +42,9 @@ open class CCTableView: CCView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet open weak var tableView: UITableView!
     
     /// 顶部加载视图
-    open var topLoad = CCCollectionView.TopLoad()
+    open var topLoad = CCTableView.TopLoad()
     /// 底部加载视图
-    open var bottomLoad = CCCollectionView.BottomLoad()
+    open var bottomLoad = CCTableView.BottomLoad()
     
     /// 回调
     open var callback: (JSONValue)->JSONValue = {_ in return JSONValue()}

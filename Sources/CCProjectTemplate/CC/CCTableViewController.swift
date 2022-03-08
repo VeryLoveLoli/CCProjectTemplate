@@ -22,9 +22,9 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
     @IBOutlet open weak var tableView: UITableView!
     
     /// 顶部加载视图
-    open var topLoad = CCCollectionView.TopLoad()
+    open var topLoad = CCTableView.TopLoad()
     /// 底部加载视图
-    open var bottomLoad = CCCollectionView.BottomLoad()
+    open var bottomLoad = CCTableView.BottomLoad()
     
     /// 页码
     open var page = 0
