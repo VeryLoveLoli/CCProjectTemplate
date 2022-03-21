@@ -226,7 +226,7 @@ public extension UIImage {
 
 // MARK: - 存储
 
-extension UIImage {
+public extension UIImage {
     
     /**
      保存图片
