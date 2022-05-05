@@ -97,7 +97,7 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
             
             if self.bottomLoad.dragLoadStatus == .loading {
                 
-                self.bottomLoad.loadEnd(self.tableView)
+                self.bottomLoad.loadEnd()
                 
                 if bool {
                     
@@ -114,7 +114,7 @@ open class CCTableViewController: CCViewController, UITableViewDelegate, UITable
                 
                 if self.topLoad.dragLoadStatus == .loading {
                     
-                    self.topLoad.loadEnd(self.tableView)
+                    self.topLoad.loadEnd()
                 }
                 
                 if bool {

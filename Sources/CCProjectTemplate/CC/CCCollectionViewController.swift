@@ -103,7 +103,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
             
             if self.bottomLoad.dragLoadStatus == .loading {
                 
-                self.bottomLoad.loadEnd(self.collectionView)
+                self.bottomLoad.loadEnd()
                 
                 if bool {
                     
@@ -120,7 +120,7 @@ open class CCCollectionViewController: CCViewController, UICollectionViewDelegat
                 
                 if self.topLoad.dragLoadStatus == .loading {
                     
-                    self.topLoad.loadEnd(self.collectionView)
+                    self.topLoad.loadEnd()
                 }
                 
                 if bool {
